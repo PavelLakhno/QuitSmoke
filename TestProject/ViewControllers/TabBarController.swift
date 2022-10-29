@@ -20,11 +20,11 @@ class TabBarController: UITabBarController {
 //        if let controllers = viewControllers {
 //            for controller in controllers {
 //                if let personsVC = controller as? ProfileViewController {
-//                    personsVC.persons = persons
+//                    //personsVC.persons = persons
 //                } else if let contactsVC = controller as? AchievementViewController {
-//                    contactsVC.persons = persons
+//                    //contactsVC.persons = persons
 //                } else if contactsVC = controller as? AdviceViewController {
-//                    contactsVC.persons = persons
+//                    //contactsVC.persons = persons
 //            }
 //        }
     }

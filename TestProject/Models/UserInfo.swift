@@ -22,25 +22,18 @@ struct User {
 }
 
 struct Person {
-    let firstName: String
-    let lastName: String
-    let age: Int
-    let city: String
-    let profession: String
     
-    var reference: String {
-                    """
-                    По образованию я инженер-конструктор космических аппаратов и разгонных блоков. Работаю на оборонно-промышленном предприятии, а в свободное от работы время обучаюсь очень интересной и увлекательной профессии.
-                    """
-    }
+    var priceBoxCigaretts: Int
+    var amountCigarettsDay: Int
+    var amountCigarettsBox: Int
+    var timeForSmoke: Int
     
     static func getPersonInfo() -> Person {
         Person(
-            firstName: "Павел",
-               lastName: "Лахно",
-               age: 32,
-               city: "Москва",
-               profession: "Инженер"
-        )
+            priceBoxCigaretts: 0,
+            amountCigarettsDay: 0,
+            amountCigarettsBox: 0,
+            timeForSmoke: 0)
     }
+
 }
