@@ -10,8 +10,6 @@ import Foundation
 class DataStore {
     static let shared = DataStore()
     
-    var dateQuitSmoke: Date!
-    
     let icons = [
         "Heart",
         "Blood",

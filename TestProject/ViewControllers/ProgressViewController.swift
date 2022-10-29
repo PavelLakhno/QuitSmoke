@@ -9,6 +9,7 @@ import UIKit
 
 class ProgressViewController: UITableViewController {
 
+    var user: User!
     private let achievements = Progress.getProgressList()
     
     override func viewDidLoad() {
@@ -18,6 +19,7 @@ class ProgressViewController: UITableViewController {
 
 
 }
+
 // MARK: UITableViewControllerDataSource
 
 extension ProgressViewController {

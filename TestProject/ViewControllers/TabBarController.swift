@@ -9,11 +9,14 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
+    var user: User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.barTintColor = .white
         tabBar.tintColor = .red
         setupControllers()
+        //print(user.logIn)
     }
     
     private func setupControllers() {

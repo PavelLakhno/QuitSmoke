@@ -196,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ka1-k4-Dud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-317" y="1300"/>
+            <point key="canvasLocation" x="-283" y="1300"/>
         </scene>
         <!--Профиль-->
         <scene sceneID="chD-XP-tSK">
@@ -284,67 +284,69 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXV-xa-igE">
-                                <rect key="frame" x="246" y="697" width="120" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                                <buttonConfiguration key="configuration" style="filled" cornerStyle="large">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Сдаться">
-                                            <attributes>
-                                                <color key="NSColor" red="1" green="0.96281323536436159" blue="0.95319191706784567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="20" name="Helvetica"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="startStopTapped:" destination="sr9-iq-szG" eventType="touchUpInside" id="zcu-uG-xqV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFA-A1-feu">
-                                <rect key="frame" x="44" y="697" width="120" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemGreenColor"/>
-                                <buttonConfiguration key="configuration" style="filled" cornerStyle="large">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Settings">
-                                            <attributes>
-                                                <color key="NSColor" red="1" green="0.96281323536436159" blue="0.95319191706784567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="20" name="Helvetica"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="RV3-OR-58V" kind="presentation" modalPresentationStyle="fullScreen" id="BIH-AY-Tvc"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="82" translatesAutoresizingMaskIntoConstraints="NO" id="fh6-1b-sgK">
+                                <rect key="frame" x="25" y="694" width="340" height="37"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFA-A1-feu">
+                                        <rect key="frame" x="0.0" y="0.0" width="129" height="37"/>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                        <buttonConfiguration key="configuration" style="filled" cornerStyle="large">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Settings">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="0.96281323536436159" blue="0.95319191706784567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="20" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="RV3-OR-58V" kind="presentation" modalPresentationStyle="fullScreen" id="BIH-AY-Tvc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXV-xa-igE">
+                                        <rect key="frame" x="211" y="0.0" width="129" height="37"/>
+                                        <buttonConfiguration key="configuration" style="filled" cornerStyle="large">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Сдаться">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="0.96281323536436159" blue="0.95319191706784567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="20" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="startStopTapped:" destination="sr9-iq-szG" eventType="touchUpInside" id="zcu-uG-xqV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hNg-AC-kkX"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hNg-AC-kkX" firstAttribute="trailing" secondItem="Ga9-gy-Zff" secondAttribute="trailing" constant="16" id="2AJ-FB-eFF"/>
                             <constraint firstItem="zHg-DF-VdR" firstAttribute="leading" secondItem="hNg-AC-kkX" secondAttribute="leading" constant="16" id="9uy-XQ-cyN"/>
+                            <constraint firstItem="hNg-AC-kkX" firstAttribute="bottom" secondItem="fh6-1b-sgK" secondAttribute="bottom" constant="30" id="AKW-9f-SWo"/>
                             <constraint firstItem="zHg-DF-VdR" firstAttribute="top" secondItem="CLT-0z-3aF" secondAttribute="bottom" constant="80" id="HGW-7D-XMh"/>
                             <constraint firstItem="hNg-AC-kkX" firstAttribute="trailing" secondItem="zHg-DF-VdR" secondAttribute="trailing" constant="16" id="Hwr-Rj-XXa"/>
+                            <constraint firstItem="fh6-1b-sgK" firstAttribute="leading" secondItem="hNg-AC-kkX" secondAttribute="leading" constant="25" id="VRk-Tr-lOe"/>
                             <constraint firstItem="Ga9-gy-Zff" firstAttribute="leading" secondItem="hNg-AC-kkX" secondAttribute="leading" constant="16" id="c7d-Rr-dLj"/>
                             <constraint firstItem="CLT-0z-3aF" firstAttribute="centerX" secondItem="W4s-PK-amS" secondAttribute="centerX" id="gzD-7v-qM3"/>
                             <constraint firstItem="CLT-0z-3aF" firstAttribute="centerY" secondItem="W4s-PK-amS" secondAttribute="centerY" constant="-30" id="mVZ-hf-Y1E"/>
                             <constraint firstItem="Ga9-gy-Zff" firstAttribute="top" secondItem="hNg-AC-kkX" secondAttribute="top" id="nyT-9X-Z5r"/>
+                            <constraint firstItem="hNg-AC-kkX" firstAttribute="trailing" secondItem="fh6-1b-sgK" secondAttribute="trailing" constant="25" id="r3A-lg-qkY"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Профиль" image="person.fill.checkmark" catalog="system" id="ZQr-jx-yR2"/>
                     <navigationItem key="navigationItem" title="Профиль" id="rbL-DP-2lC">
-                        <barButtonItem key="rightBarButtonItem" title="Team" id="Ja3-rm-sEz">
+                        <barButtonItem key="rightBarButtonItem" title="Team" image="person.fill.questionmark" catalog="system" style="plain" id="Ja3-rm-sEz">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="dFi-qw-ihW" kind="show" id="Sk5-9C-9rI"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -772,6 +774,7 @@
         <image name="lasso" catalog="system" width="128" height="118"/>
         <image name="person.crop.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="person.fill.checkmark" catalog="system" width="128" height="88"/>
+        <image name="person.fill.questionmark" catalog="system" width="128" height="104"/>
         <image name="scribble.variable" catalog="system" width="128" height="118"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

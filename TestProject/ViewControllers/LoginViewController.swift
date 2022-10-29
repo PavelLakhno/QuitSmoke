@@ -8,6 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -19,16 +20,16 @@ class LoginViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let tabBarController = segue.destination as? UITabBarController
-//        guard let viewControllers = tabBarController?.viewControllers else { return }
-//        for viewController in viewControllers {
-//            if let welcomeVC = viewController as? AchievementViewController {
-//                welcomeVC.user = user
-//            } else if let navigationVC = viewController as? UINavigationController {
-//                let infoVC = navigationVC.topViewController as? InfoViewController
-//                infoVC?.user = user
-//            }
-//        }
+        if let navigationVC = segue.destination as? UINavigationController {
+            if let tabBarController = navigationVC.topViewController as? UITabBarController {
+                guard let viewControllers = tabBarController.viewControllers else { return }
+                for viewController in viewControllers {
+                    if let profileVC = viewController as? ProfileViewController {
+                        profileVC.user = user
+                    }
+                }       
+            }
+        }
     }
 
     @IBAction func logInPressed() {

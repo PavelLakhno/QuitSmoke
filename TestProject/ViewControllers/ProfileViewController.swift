@@ -17,21 +17,35 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startStopButton: UIButton!
     
-    var timer:Timer = Timer()
-    var count:Int = 0
-    var timerCounting:Bool = false
+    var user: User!
+    
+    var timer = Timer()
+    var count = 0
+    var timerCounting = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         startStopButton.setTitleColor(UIColor.green, for: .normal)
-        print(getCurrentDate())
+
+        count = Int(Date().timeIntervalSince1970) - user.person.timeForSmoke
+        print(Int(Date().timeIntervalSince1970))
+        if timerCounting { timer = Timer.scheduledTimer(
+            timeInterval: 1,
+            target: self,
+            selector: #selector(timerCounter),
+            userInfo: nil,
+            repeats: true
+        ) }
+        
     }
 
-    @IBAction func resetTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "Reset Timer?", message: "Are you sure you would like to reset the Timer?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: { _ in
-            //do nothing
-        }))
+    @IBAction func resetTapped(_ sender: UIButton) {
+        let alert = UIAlertController(
+            title: "Reset Timer?",
+            message: "Are you sure you would like to reset the Timer?",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "CANCEL", style: .cancel))
 
         alert.addAction(UIAlertAction(title: "YES", style: .default, handler: { _ in
             self.count = 0
@@ -44,7 +58,7 @@ class ProfileViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func startStopTapped(_ sender: Any) {
+    @IBAction func startStopTapped(_ sender: UIButton) {
         if(timerCounting) {
             timerCounting = false
             timer.invalidate()
@@ -55,9 +69,16 @@ class ProfileViewController: UIViewController {
             passCigaretts.text = "0 шт"
         } else {
             timerCounting = true
+            user.person.timeForSmoke = Int(Date().timeIntervalSince1970)
             startStopButton.setTitle("STOP", for: .normal)
             startStopButton.setTitleColor(UIColor.red, for: .normal)
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(
+                timeInterval: 1,
+                target: self,
+                selector: #selector(timerCounter),
+                userInfo: nil,
+                repeats: true
+            )
         }
     }
     
@@ -84,11 +105,11 @@ class ProfileViewController: UIViewController {
     
     func makeDateString(day: Int, month: Int, year: Int) -> String {
         var dateString = ""
-        dateString += String(format: "%02d", day)
+        dateString += "\(day)"
         dateString += " / "
-        dateString += String(format: "%02d", month)
+        dateString += "\(month)"
         dateString += " / "
-        dateString += String(format: "%02d", year)
+        dateString += "\(year)"
         return dateString
     }
     
@@ -102,6 +123,8 @@ class ProfileViewController: UIViewController {
             month: component.month ?? 0,
             year: component.year ?? 0
         )
+        
+        
         return stringDate
     }
     
