@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var priceBoxCigaretts: UILabel!
@@ -47,29 +45,31 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    @IBAction func saveDataForUser() {
+    @IBAction func didTappedAction() {
+        saveDataForUser()
+        delegate.setupSettingsTo(user: user)
+        dismiss(animated: true)
+    }
+    
+    private func saveDataForUser() {
         user.person.priceBoxCigaretts = Int(priceBoxSlider.value)
         user.person.timeForSmoke = Int(timeForSmokeSlider.value)
         user.person.amountCigarettsBox = Int(amountInBoxSlider.value)
         user.person.amountCigarettsDay = Int(amountCigarettsDaySlider.value)
         user.person.dateQuitSmoke = datePicker.date
-        
-        delegate.setupSettingsTo(user: user)
-        
-        dismiss(animated: true)
     }
-    
+
     private func loadDataUser(user: User) {
         priceBoxSlider.value = Float(user.person.priceBoxCigaretts)
         timeForSmokeSlider.value = Float(user.person.timeForSmoke)
         amountInBoxSlider.value = Float(user.person.amountCigarettsBox)
         amountCigarettsDaySlider.value = Float(user.person.amountCigarettsDay)
     }
+    
     private func setupCorrectLabels() {
         priceBoxCigaretts.text = "\(user.person.priceBoxCigaretts) руб"
         amountCigarettsBox.text = "\(user.person.amountCigarettsBox) шт"
         amountCigarettsDay.text = "\(user.person.amountCigarettsDay) шт"
         timeForSmoke.text = "\(user.person.timeForSmoke) мин"
     }
-
 }

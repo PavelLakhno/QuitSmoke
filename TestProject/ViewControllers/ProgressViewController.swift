@@ -16,8 +16,6 @@ class ProgressViewController: UITableViewController {
         super.viewDidLoad()
         tableView.dataSource = self
     }
-
-
 }
 
 // MARK: UITableViewControllerDataSource

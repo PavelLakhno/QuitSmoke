@@ -147,6 +147,7 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController : SettingsViewControllerDelegate {
     func setupSettingsTo(user: User) {
+        self.user = user
         count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
         startStopButton.isEnabled = true
     }
