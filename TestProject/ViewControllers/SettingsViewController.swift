@@ -33,13 +33,7 @@ class SettingsViewController: UIViewController {
         loadDataUser(user: user)
         setupCorrectLabels()
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let profileVC = segue.destination as? ProfileViewController {
-//            profileVC.user = user
-//        }
-//    }
-    
+        
     @IBAction func setupSettings(_ sender: UISlider) {
         switch sender {
         case priceBoxSlider:

@@ -30,11 +30,8 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
         startStopTimer(timerCounting)
-        economyTime.text = getEconomyTime()
-        economyMoney.text = getEconomyMoney()
-        passCigaretts.text = getCountNoSmokeCig()
+        getStartSettings()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,13 +98,13 @@ class ProfileViewController: UIViewController {
     }
     
     
-    func secondsToDaysHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int, Int) {
+    private func secondsToDaysHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int, Int) {
         let restSeconds = seconds % 86400
         return ((seconds / 86400), (restSeconds / 3600), ((restSeconds % 3600) / 60), ((restSeconds % 3600) % 60))
     }
     
     
-    func makeTimeString(hours: Int, minutes: Int, seconds : Int) -> String {
+    private func makeTimeString(hours: Int, minutes: Int, seconds : Int) -> String {
         var timeString = ""
         timeString += String(format: "%02d", hours)
         timeString += " : "
@@ -117,23 +114,30 @@ class ProfileViewController: UIViewController {
         return timeString
     }
     
-    func getTimeIntervalFrom(date: Date) -> Int {
+    private func getTimeIntervalFrom(date: Date) -> Int {
         Int(Date().timeIntervalSinceReferenceDate - date.timeIntervalSinceReferenceDate)
     }
     
-    func getEconomyTime() -> String {
-        "\((count / 60) / (user.person.timeForSmoke)) мин"
+    private func getEconomyTime() {
+        economyTime.text = "\((count / 60) / (user.person.timeForSmoke)) мин"
     }
 
-    func getEconomyMoney() -> String {
+    private func getEconomyMoney() {
         let priceOneCigar = user.person.priceBoxCigaretts / user.person.amountCigarettsBox
         let spendMoneyOneDay = priceOneCigar * user.person.amountCigarettsDay
         let totalEconomyMoney = "\(count % 86400 * spendMoneyOneDay) руб"
-        return totalEconomyMoney
+        economyMoney.text =  totalEconomyMoney
     }
     
-    func getCountNoSmokeCig() -> String {
-        "\(count % 86400 * user.person.amountCigarettsDay) шт"
+    private func getCountNoSmokeCig() {
+        passCigaretts.text = "\(count % 86400 * user.person.amountCigarettsDay) шт"
+    }
+    
+    private func getStartSettings() {
+        count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
+        getEconomyTime()
+        getEconomyMoney()
+        getCountNoSmokeCig()
     }
     
 }
@@ -141,6 +145,6 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController : SettingsViewControllerDelegate {
     func setupSettingsTo(user: User) {
-        self.user = user
+        getStartSettings()
     }
 }
