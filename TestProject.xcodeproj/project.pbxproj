@@ -125,9 +125,9 @@
 			children = (
 				E9133F17290BC1530010530E /* LoginViewController.swift */,
 				E9133F1B290BC5830010530E /* ProfileViewController.swift */,
+				E9133F1D290BC5C60010530E /* SettingsViewController.swift */,
 				E9133F1F290BC6390010530E /* TabBarController.swift */,
 				E9133F19290BC52A0010530E /* ProgressViewController.swift */,
-				E9133F1D290BC5C60010530E /* SettingsViewController.swift */,
 				0B50DB50290D69220084FDB9 /* AdvicesViewController.swift */,
 			);
 			path = ViewControllers;

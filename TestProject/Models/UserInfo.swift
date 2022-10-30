@@ -23,22 +23,35 @@ struct User {
 
 struct Person {
 
-    var dateQuitSmoke: Int
+    
     var priceBoxCigaretts: Int
     var amountCigarettsDay: Int
     var amountCigarettsBox: Int
     var timeForSmoke: Int
-
+    var dateQuitSmoke: Date
+    
     static func getPersonInfo() -> Person {
 
         Person(
-            dateQuitSmoke: 32429935,
-            priceBoxCigaretts: 0,
-            amountCigarettsDay: 0,
-            amountCigarettsBox: 0,
-            timeForSmoke: 0
+            priceBoxCigaretts: 150,
+            amountCigarettsDay: 15,
+            amountCigarettsBox: 20,
+            timeForSmoke: 4,
+            dateQuitSmoke: defaultSettings()
         )
 
+    }
+    
+    static func defaultSettings() -> Date {
+        var component = DateComponents()
+        component.year = 2020
+        component.month = 6
+        component.day = 20
+        component.hour = 12
+        component.minute = 25
+        component.second = 54
+
+        return Calendar.current.date(from: component) ?? Date()
     }
 
 }
