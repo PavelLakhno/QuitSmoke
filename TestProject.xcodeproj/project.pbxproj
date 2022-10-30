@@ -15,6 +15,8 @@
 		0B569FAF29086B5D00F3C53A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B569FAE29086B5D00F3C53A /* SceneDelegate.swift */; };
 		0B569FB629086B6000F3C53A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B569FB529086B6000F3C53A /* Assets.xcassets */; };
 		0B569FB929086B6000F3C53A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B569FB729086B6000F3C53A /* LaunchScreen.storyboard */; };
+		CE861EA6290ECE9100B74E8C /* ProgressStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE861EA5290ECE9100B74E8C /* ProgressStoryboard.storyboard */; };
+		CE861EA8290ED1A900B74E8C /* AdvicesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE861EA7290ED1A900B74E8C /* AdvicesStoryboard.storyboard */; };
 		E9133F18290BC1530010530E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9133F17290BC1530010530E /* LoginViewController.swift */; };
 		E9133F1A290BC52A0010530E /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9133F19290BC52A0010530E /* ProgressViewController.swift */; };
 		E9133F1C290BC5830010530E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9133F1B290BC5830010530E /* ProfileViewController.swift */; };
@@ -35,6 +37,8 @@
 		0B569FB529086B6000F3C53A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B569FB829086B6000F3C53A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B569FBA29086B6000F3C53A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE861EA5290ECE9100B74E8C /* ProgressStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProgressStoryboard.storyboard; sourceTree = "<group>"; };
+		CE861EA7290ED1A900B74E8C /* AdvicesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdvicesStoryboard.storyboard; sourceTree = "<group>"; };
 		E9133F17290BC1530010530E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E9133F19290BC52A0010530E /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		E9133F1B290BC5830010530E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 			children = (
 				E961E8CB29094AAD00FE1BD9 /* Main.storyboard */,
 				0B569FB729086B6000F3C53A /* LaunchScreen.storyboard */,
+				CE861EA5290ECE9100B74E8C /* ProgressStoryboard.storyboard */,
+				CE861EA7290ED1A900B74E8C /* AdvicesStoryboard.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -202,6 +208,8 @@
 			files = (
 				0B569FB929086B6000F3C53A /* LaunchScreen.storyboard in Resources */,
 				0B569FB629086B6000F3C53A /* Assets.xcassets in Resources */,
+				CE861EA6290ECE9100B74E8C /* ProgressStoryboard.storyboard in Resources */,
+				CE861EA8290ED1A900B74E8C /* AdvicesStoryboard.storyboard in Resources */,
 				E961E8CC29094AAD00FE1BD9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -29,9 +29,9 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.title = "Profile"
         startStopTimer(timerCounting)
-        getStartSettings()
+        count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,13 +49,12 @@ class ProfileViewController: UIViewController {
             startStopTimer(timerCounting)
             startStopButton.setTitle("Бросаю", for: .normal)
             startStopButton.setTitleColor(UIColor.white, for: .normal)
-            startStopButton.backgroundColor = .green
+            
         } else {
             timerCounting = true
             startStopTimer(timerCounting)
             startStopButton.setTitle("Сдаюсь", for: .normal)
             startStopButton.setTitleColor(UIColor.white, for: .normal)
-            startStopButton.backgroundColor = .red
         }
     }
     
@@ -74,7 +73,7 @@ class ProfileViewController: UIViewController {
         }
     }
 
-    private func giveUp() {
+    func giveUp() {
             self.user.person.dateQuitSmoke = Date()
             self.user.person.amountCigarettsDay = 1
             self.user.person.amountCigarettsBox = 1
@@ -86,8 +85,10 @@ class ProfileViewController: UIViewController {
             self.passCigaretts.text = "0 шт"
             self.daysLabel.text = "0"
             self.timerLabel.text = self.makeTimeString(hours: 0, minutes: 0, seconds: 0)
+            startStopButton.isEnabled = false
     }
     
+        
     @objc func timerCounter() {
         count += 1
         let time = secondsToDaysHoursMinutesSeconds(seconds: count)
@@ -95,6 +96,9 @@ class ProfileViewController: UIViewController {
         let timeString = makeTimeString(hours: time.1, minutes: time.2, seconds: time.3)
         daysLabel.text = dayString
         timerLabel.text = timeString
+        economyTime.text = getEconomyTime()
+        economyMoney.text = getEconomyMoney()
+        passCigaretts.text = getCountNoSmokeCig()
     }
     
     
@@ -114,37 +118,36 @@ class ProfileViewController: UIViewController {
         return timeString
     }
     
+    private func makeDayString(seconds: Int) -> String {
+        "\((seconds / 86400))"
+    }
+    
     private func getTimeIntervalFrom(date: Date) -> Int {
         Int(Date().timeIntervalSinceReferenceDate - date.timeIntervalSinceReferenceDate)
     }
     
-    private func getEconomyTime() {
-        economyTime.text = "\((count / 60) / (user.person.timeForSmoke)) мин"
+    private func getEconomyTime() -> String {
+        print(count)
+        return "\((count) / (user.person.timeForSmoke * 60) / 60) мин"
     }
 
-    private func getEconomyMoney() {
+    private func getEconomyMoney() -> String {
         let priceOneCigar = user.person.priceBoxCigaretts / user.person.amountCigarettsBox
         let spendMoneyOneDay = priceOneCigar * user.person.amountCigarettsDay
-        let totalEconomyMoney = "\(count % 86400 * spendMoneyOneDay) руб"
-        economyMoney.text =  totalEconomyMoney
+        let totalEconomyMoney = "\(count / 86400 * spendMoneyOneDay) руб"
+        return totalEconomyMoney
     }
     
-    private func getCountNoSmokeCig() {
-        passCigaretts.text = "\(count % 86400 * user.person.amountCigarettsDay) шт"
+    private func getCountNoSmokeCig() -> String{
+        "\(count / 86400 * user.person.amountCigarettsDay) шт"
     }
-    
-    private func getStartSettings() {
-        count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
-        getEconomyTime()
-        getEconomyMoney()
-        getCountNoSmokeCig()
-    }
-    
+   
 }
 
 
 extension ProfileViewController : SettingsViewControllerDelegate {
     func setupSettingsTo(user: User) {
-        getStartSettings()
+        count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
+        startStopButton.isEnabled = true
     }
 }

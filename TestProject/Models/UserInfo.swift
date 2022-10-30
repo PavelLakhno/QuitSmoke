@@ -44,7 +44,7 @@ struct Person {
     
     static func defaultSettings() -> Date {
         var component = DateComponents()
-        component.year = 2020
+        component.year = 2021
         component.month = 6
         component.day = 20
         component.hour = 12
