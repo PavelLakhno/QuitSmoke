@@ -7,38 +7,47 @@
 
 import UIKit
 
-class AdvicesViewController: UIViewController {
+class AdvicesViewController: UITableViewController {
+    
 
+    var selectedIndex = -1
+    var isCoolapse = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = ""
-        
+
+        tableView.estimatedRowHeight = 332
+        tableView.rowHeight = UITableView.noIntrinsicMetric
+     }
+
+    // MARK: - TableViewDataSource
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AdviceTableViewCell
+        cell.nameLabel.text = "\(indexPath.row)"
+        return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if selectedIndex == indexPath.row {
+            isCoolapse = !isCoolapse ? true : false
+        } else {
+            isCoolapse = true
+        }
+        
+        selectedIndex = indexPath.row
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        selectedIndex == indexPath.row && isCoolapse ? 332 : 70
+    }
 }
 
-//extension AdvicesViewController {
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section:
-//    Int) -> Int {
-//        achievements.count
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(
-//            withIdentifier: "progress",
-//            for: indexPath
-//        ) as! ProgressTableViewCell
-//
-//        cell.timeLabel.text = achievements[indexPath.row].timeTitle
-//        cell.descriptionLabel.text = achievements[indexPath.row].description
-//        cell.iconImageView.image = UIImage(named: achievements[indexPath.row].iconName)
-//        cell.successImageView.image = UIImage(named: "Ok")
-//
-//        return cell
-//    }
-//
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        150.0
-//    }
-//}
+

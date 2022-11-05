@@ -4,82 +4,80 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Советы-->
-        <scene sceneID="ATx-3c-mnp">
+        <!--Advices View Controller-->
+        <scene sceneID="5GW-tT-99T">
             <objects>
-                <viewController storyboardIdentifier="AdvicesViewController" id="85r-gv-kLO" customClass="AdvicesViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yza-xd-yAk">
+                <tableViewController storyboardIdentifier="AdvicesViewController" id="qzr-ot-Gje" customClass="AdvicesViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="bUl-Oj-zMS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rqL-OY-rDK">
-                                <rect key="frame" x="16" y="44" width="382" height="818"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4f-Ee-uiJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="2vp-MO-Ak0"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Recomendation"/>
-                                        <connections>
-                                            <segue destination="NwJ-mg-Vgk" kind="show" id="i11-CQ-Mfw"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LqM-OL-hXf">
-                                        <rect key="frame" x="0.0" y="309" width="382" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="BgM-kF-ooH"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Recomendation"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iY-6m-sIA">
-                                        <rect key="frame" x="0.0" y="618" width="382" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="2Iu-Df-X2q"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Recomendation"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="OoE-1B-MWM"/>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="OoE-1B-MWM" firstAttribute="trailing" secondItem="rqL-OY-rDK" secondAttribute="trailing" constant="16" id="0nH-OO-gRT"/>
-                            <constraint firstItem="OoE-1B-MWM" firstAttribute="bottom" secondItem="rqL-OY-rDK" secondAttribute="bottom" id="A1D-b9-gW8"/>
-                            <constraint firstItem="rqL-OY-rDK" firstAttribute="top" secondItem="OoE-1B-MWM" secondAttribute="top" id="GMK-pW-njQ"/>
-                            <constraint firstItem="rqL-OY-rDK" firstAttribute="leading" secondItem="OoE-1B-MWM" secondAttribute="leading" constant="16" id="JMt-8Q-wIa"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Советы" image="scribble.variable" catalog="system" id="EE3-SQ-cv1"/>
-                    <navigationItem key="navigationItem" title="Советы" id="i3m-Yu-kie"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="At3-ET-yfr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="332" id="A1d-XL-fPg" customClass="AdviceTableViewCell" customModule="TestProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="332"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A1d-XL-fPg" id="SvF-ti-KTh">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="332"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktq-xX-ZTr">
+                                            <rect key="frame" x="20" y="11" width="374" height="70"/>
+                                            <color key="backgroundColor" red="0.66666668650000005" green="0.46654143419999999" blue="0.44140609149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="j6e-du-t55"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aak-C6-peO">
+                                            <rect key="frame" x="20" y="91" width="374" height="220"/>
+                                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ktq-xX-ZTr" firstAttribute="trailing" secondItem="SvF-ti-KTh" secondAttribute="trailingMargin" id="74X-Ib-Xwl"/>
+                                        <constraint firstItem="Aak-C6-peO" firstAttribute="top" secondItem="ktq-xX-ZTr" secondAttribute="bottom" constant="10" id="8gq-FA-UaL"/>
+                                        <constraint firstItem="Aak-C6-peO" firstAttribute="leading" secondItem="SvF-ti-KTh" secondAttribute="leadingMargin" id="Fvq-t5-mgu"/>
+                                        <constraint firstItem="ktq-xX-ZTr" firstAttribute="top" secondItem="SvF-ti-KTh" secondAttribute="topMargin" id="RkW-P5-zEQ"/>
+                                        <constraint firstItem="Aak-C6-peO" firstAttribute="bottom" secondItem="SvF-ti-KTh" secondAttribute="bottomMargin" constant="-10" id="pEg-7J-7b7"/>
+                                        <constraint firstItem="ktq-xX-ZTr" firstAttribute="leading" secondItem="SvF-ti-KTh" secondAttribute="leadingMargin" id="xpj-B8-ZWC"/>
+                                        <constraint firstItem="Aak-C6-peO" firstAttribute="trailing" secondItem="SvF-ti-KTh" secondAttribute="trailingMargin" id="zUX-FV-xu1"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="headerView" destination="Aak-C6-peO" id="mQR-VH-t3a"/>
+                                    <outlet property="nameLabel" destination="ktq-xX-ZTr" id="86w-2m-U0A"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qzr-ot-Gje" id="Sc5-Uf-lvs"/>
+                            <outlet property="delegate" destination="qzr-ot-Gje" id="PlC-Dy-XMG"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f5e-gs-yk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2140" y="1299.5260663507108"/>
+            <point key="canvasLocation" x="2150.7246376811595" y="1305.8035714285713"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ntO-mx-BZI">
             <objects>
                 <viewController id="NwJ-mg-Vgk" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k61-hp-4jv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFt-nc-Sgs">
-                                <rect key="frame" x="16" y="0.0" width="382" height="808"/>
+                                <rect key="frame" x="16" y="44" width="382" height="818"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Здесь какой-то очень умный текст, который должен быть как рекомендация" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ef-Je-7YP">
-                                        <rect key="frame" x="8" y="721" width="366" height="79"/>
+                                        <rect key="frame" x="8" y="731" width="366" height="79"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -110,6 +108,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="scribble.variable" catalog="system" width="128" height="118"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

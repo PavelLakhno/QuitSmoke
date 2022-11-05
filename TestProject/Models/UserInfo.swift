@@ -44,12 +44,12 @@ struct Person {
     
     static func defaultSettings() -> Date {
         var component = DateComponents()
-        component.year = 2021
-        component.month = 6
+        component.year = 2022
+        component.month = 10
         component.day = 20
-        component.hour = 12
-        component.minute = 25
-        component.second = 54
+        component.hour = 1
+        component.minute = 0
+        component.second = 0
 
         return Calendar.current.date(from: component) ?? Date()
     }

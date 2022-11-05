@@ -19,12 +19,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OG4-07-AxQ">
                                 <rect key="frame" x="55" y="214" width="265" height="159"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cTO-Cb-Cpw">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="User" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cTO-Cb-Cpw">
                                         <rect key="frame" x="0.0" y="0.0" width="265" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="next" textContentType="nickname"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QFm-0w-9VD">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QFm-0w-9VD">
                                         <rect key="frame" x="0.0" y="44" width="265" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
@@ -336,7 +336,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Профиль" id="rbL-DP-2lC">
-                        <barButtonItem key="rightBarButtonItem" title="dsfsdf" image="person.2" catalog="system" id="stx-gY-6EN">
+                        <barButtonItem key="rightBarButtonItem" image="person.2" catalog="system" id="stx-gY-6EN">
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
                                 <segue destination="dFi-qw-ihW" kind="presentation" modalPresentationStyle="fullScreen" id="tfr-AA-U6x"/>
@@ -355,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvn-fQ-02v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="621.53846153846155" y="1299.5260663507108"/>
+            <point key="canvasLocation" x="620" y="1300"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="wbS-aE-N19">
