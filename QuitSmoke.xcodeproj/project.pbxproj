@@ -31,7 +31,7 @@
 		0B330514290C84B10068C25D /* ProgressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTableViewCell.swift; sourceTree = "<group>"; };
 		0B50DB4E290D1C3E0084FDB9 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		0B50DB50290D69220084FDB9 /* AdvicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvicesViewController.swift; sourceTree = "<group>"; };
-		0B569FA929086B5D00F3C53A /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B569FA929086B5D00F3C53A /* QuitSmoke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuitSmoke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B569FAC29086B5D00F3C53A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B569FAE29086B5D00F3C53A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0B569FB529086B6000F3C53A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		0B569FA029086B5D00F3C53A = {
 			isa = PBXGroup;
 			children = (
-				0B569FAB29086B5D00F3C53A /* TestProject */,
+				0B569FAB29086B5D00F3C53A /* QuitSmoke */,
 				0B569FAA29086B5D00F3C53A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,12 +87,12 @@
 		0B569FAA29086B5D00F3C53A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0B569FA929086B5D00F3C53A /* TestProject.app */,
+				0B569FA929086B5D00F3C53A /* QuitSmoke.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0B569FAB29086B5D00F3C53A /* TestProject */ = {
+		0B569FAB29086B5D00F3C53A /* QuitSmoke */ = {
 			isa = PBXGroup;
 			children = (
 				0B50DB4D290D1C050084FDB9 /* Services */,
@@ -103,7 +103,7 @@
 				0B569FC229086BA500F3C53A /* Storyboards */,
 				0B569FB529086B6000F3C53A /* Assets.xcassets */,
 			);
-			path = TestProject;
+			path = QuitSmoke;
 			sourceTree = "<group>";
 		};
 		0B569FC029086B7100F3C53A /* App */ = {
@@ -151,9 +151,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0B569FA829086B5D00F3C53A /* TestProject */ = {
+		0B569FA829086B5D00F3C53A /* QuitSmoke */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B569FBD29086B6000F3C53A /* Build configuration list for PBXNativeTarget "TestProject" */;
+			buildConfigurationList = 0B569FBD29086B6000F3C53A /* Build configuration list for PBXNativeTarget "QuitSmoke" */;
 			buildPhases = (
 				0B569FA529086B5D00F3C53A /* Sources */,
 				0B569FA629086B5D00F3C53A /* Frameworks */,
@@ -163,9 +163,9 @@
 			);
 			dependencies = (
 			);
-			name = TestProject;
+			name = QuitSmoke;
 			productName = TestProject;
-			productReference = 0B569FA929086B5D00F3C53A /* TestProject.app */;
+			productReference = 0B569FA929086B5D00F3C53A /* QuitSmoke.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -183,7 +183,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0B569FA429086B5D00F3C53A /* Build configuration list for PBXProject "TestProject" */;
+			buildConfigurationList = 0B569FA429086B5D00F3C53A /* Build configuration list for PBXProject "QuitSmoke" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -196,7 +196,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0B569FA829086B5D00F3C53A /* TestProject */,
+				0B569FA829086B5D00F3C53A /* QuitSmoke */,
 			);
 		};
 /* End PBXProject section */
@@ -375,7 +375,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EZEA8LL4D8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestProject/App/Info.plist;
+				INFOPLIST_FILE = QuitSmoke/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -387,7 +387,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pavellakhno.TestProject;
+				PRODUCT_BUNDLE_IDENTIFIER = pavellakhno.QuitSmoke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -404,7 +404,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EZEA8LL4D8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestProject/App/Info.plist;
+				INFOPLIST_FILE = QuitSmoke/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -416,7 +416,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pavellakhno.TestProject;
+				PRODUCT_BUNDLE_IDENTIFIER = pavellakhno.QuitSmoke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -427,7 +427,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0B569FA429086B5D00F3C53A /* Build configuration list for PBXProject "TestProject" */ = {
+		0B569FA429086B5D00F3C53A /* Build configuration list for PBXProject "QuitSmoke" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0B569FBB29086B6000F3C53A /* Debug */,
@@ -436,7 +436,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0B569FBD29086B6000F3C53A /* Build configuration list for PBXNativeTarget "TestProject" */ = {
+		0B569FBD29086B6000F3C53A /* Build configuration list for PBXNativeTarget "QuitSmoke" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0B569FBE29086B6000F3C53A /* Debug */,
