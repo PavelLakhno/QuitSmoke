@@ -1,6 +1,6 @@
 //
 //  AdvicesViewController.swift
-//  TestProject
+//  QuitSmoke
 //
 //  Created by Павел Лахно on 29.10.2022.
 //
@@ -9,16 +9,11 @@ import UIKit
 
 class AdvicesViewController: UITableViewController {
     
-
-    var selectedIndex = -1
-    var isCoolapse = false
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.estimatedRowHeight = 332
-        tableView.rowHeight = UITableView.noIntrinsicMetric
-     }
+    }
 
     // MARK: - TableViewDataSource
     
@@ -27,27 +22,36 @@ class AdvicesViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AdviceTableViewCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "AdviceTableViewCell",
+            for: indexPath
+        ) as! AdviceTableViewCell
+        
         cell.nameLabel.text = "\(indexPath.row)"
+
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        if selectedIndex == indexPath.row {
-            isCoolapse = !isCoolapse ? true : false
-        } else {
-            isCoolapse = true
+        UIView.animate(withDuration: 0.3) {
+            tableView.performBatchUpdates(nil)
+
         }
-        
-        selectedIndex = indexPath.row
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? AdviceTableViewCell {
+            cell.hideDetailView()
+        }
     }
 
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        selectedIndex == indexPath.row && isCoolapse ? 332 : 70
-    }
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        var height: CGFloat = 70
+//        if let cell = tableView.cellForRow(at: indexPath) as? AdviceTableViewCell {
+//            height = cell.isDetailViewHidden ? 70 : 300
+//        }
+//        return height
+//    }
 }
 
 

@@ -8,50 +8,62 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Advices View Controller-->
+        <!--Info-->
         <scene sceneID="5GW-tT-99T">
             <objects>
-                <tableViewController storyboardIdentifier="AdvicesViewController" id="qzr-ot-Gje" customClass="AdvicesViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AdvicesViewController" id="qzr-ot-Gje" customClass="AdvicesViewController" customModule="QuitSmoke" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="bUl-Oj-zMS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="332" id="A1d-XL-fPg" customClass="AdviceTableViewCell" customModule="TestProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="332"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdviceTableViewCell" rowHeight="300" id="A1d-XL-fPg" customClass="AdviceTableViewCell" customModule="QuitSmoke" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A1d-XL-fPg" id="SvF-ti-KTh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="332"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktq-xX-ZTr">
-                                            <rect key="frame" x="20" y="11" width="374" height="70"/>
-                                            <color key="backgroundColor" red="0.66666668650000005" green="0.46654143419999999" blue="0.44140609149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="70" id="j6e-du-t55"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aak-C6-peO">
-                                            <rect key="frame" x="20" y="91" width="374" height="220"/>
-                                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UEX-hZ-CbR">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="300"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOW-lJ-ibd">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwK-Fi-e83">
+                                                            <rect key="frame" x="8" y="12" width="358" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="cDJ-Um-hTb"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aak-C6-peO">
+                                                    <rect key="frame" x="0.0" y="70" width="374" height="230"/>
+                                                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="229" id="uBb-tr-obO"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="ktq-xX-ZTr" firstAttribute="trailing" secondItem="SvF-ti-KTh" secondAttribute="trailingMargin" id="74X-Ib-Xwl"/>
-                                        <constraint firstItem="Aak-C6-peO" firstAttribute="top" secondItem="ktq-xX-ZTr" secondAttribute="bottom" constant="10" id="8gq-FA-UaL"/>
-                                        <constraint firstItem="Aak-C6-peO" firstAttribute="leading" secondItem="SvF-ti-KTh" secondAttribute="leadingMargin" id="Fvq-t5-mgu"/>
-                                        <constraint firstItem="ktq-xX-ZTr" firstAttribute="top" secondItem="SvF-ti-KTh" secondAttribute="topMargin" id="RkW-P5-zEQ"/>
-                                        <constraint firstItem="Aak-C6-peO" firstAttribute="bottom" secondItem="SvF-ti-KTh" secondAttribute="bottomMargin" constant="-10" id="pEg-7J-7b7"/>
-                                        <constraint firstItem="ktq-xX-ZTr" firstAttribute="leading" secondItem="SvF-ti-KTh" secondAttribute="leadingMargin" id="xpj-B8-ZWC"/>
-                                        <constraint firstItem="Aak-C6-peO" firstAttribute="trailing" secondItem="SvF-ti-KTh" secondAttribute="trailingMargin" id="zUX-FV-xu1"/>
+                                        <constraint firstAttribute="bottom" secondItem="UEX-hZ-CbR" secondAttribute="bottom" id="2Ps-Gr-3mp"/>
+                                        <constraint firstItem="UEX-hZ-CbR" firstAttribute="top" secondItem="SvF-ti-KTh" secondAttribute="top" id="HbQ-xn-duD"/>
+                                        <constraint firstAttribute="trailing" secondItem="UEX-hZ-CbR" secondAttribute="trailing" constant="20" symbolic="YES" id="PTf-6Z-fI8"/>
+                                        <constraint firstItem="UEX-hZ-CbR" firstAttribute="leading" secondItem="SvF-ti-KTh" secondAttribute="leading" constant="20" symbolic="YES" id="g1t-sm-d8Z"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="headerView" destination="Aak-C6-peO" id="mQR-VH-t3a"/>
-                                    <outlet property="nameLabel" destination="ktq-xX-ZTr" id="86w-2m-U0A"/>
+                                    <outlet property="nameLabel" destination="UwK-Fi-e83" id="k0S-Kd-W0e"/>
+                                    <outlet property="title" destination="bOW-lJ-ibd" id="tbg-Nl-RYk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -60,6 +72,8 @@
                             <outlet property="delegate" destination="qzr-ot-Gje" id="PlC-Dy-XMG"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Info" image="scribble" catalog="system" id="Msn-xe-X6e"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5e-gs-yk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,8 +122,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="scribble" catalog="system" width="128" height="118"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

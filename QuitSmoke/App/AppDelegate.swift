@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  TestProject
+//  QuitSmoke
 //
 //  Created by Павел Лахно on 25.10.2022.
 //

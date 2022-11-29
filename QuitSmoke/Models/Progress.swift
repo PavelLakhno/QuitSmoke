@@ -1,6 +1,6 @@
 //
 //  Achievement.swift
-//  TestProject
+//  QuitSmoke
 //
 //  Created by Павел Лахно on 29.10.2022.
 //

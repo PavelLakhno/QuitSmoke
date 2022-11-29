@@ -1,6 +1,6 @@
 //
 //  UserInfo.swift
-//  LoginApp
+//  QuitSmoke
 //
 //  Created by Павел Лахно on 05.10.2022.
 //

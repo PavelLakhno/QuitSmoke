@@ -1,6 +1,6 @@
 //
 //  ProfileViewController.swift
-//  TestProject
+//  QuitSmoke
 //
 //  Created by Павел on 28.10.2022.
 //

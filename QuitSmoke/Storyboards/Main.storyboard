@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="QuitSmoke" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,116 +92,10 @@
             </objects>
             <point key="canvasLocation" x="-318" y="465"/>
         </scene>
-        <!--Home-->
-        <scene sceneID="sdq-2p-doc">
-            <objects>
-                <viewController id="dFi-qw-ihW" customClass="WelcomeViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Bog-O7-Oyk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participated in the project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcw-W6-QXS">
-                                <rect key="frame" x="54" y="172.33333333333334" width="267" height="21.666666666666657"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="UUJ-yJ-Rig">
-                                <rect key="frame" x="16" y="198.99999999999997" width="343" height="354.33333333333326"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="seg-kt-6eW">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="77.333333333333329"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🤓" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNb-ks-nWY">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Github:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBe-7a-MbE">
-                                                <rect key="frame" x="0.0" y="57.000000000000007" width="343" height="20.333333333333336"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="XCl-H4-ID6">
-                                        <rect key="frame" x="0.0" y="92.333333333333314" width="343" height="77.333333333333314"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🙃" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gT-At-ESo">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Github:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwo-UD-LWh">
-                                                <rect key="frame" x="0.0" y="57.000000000000007" width="343" height="20.333333333333336"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="4F3-FS-YSG">
-                                        <rect key="frame" x="0.0" y="184.66666666666669" width="343" height="77.333333333333314"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😎" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhA-VI-uqt">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Github:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opc-gG-eQY">
-                                                <rect key="frame" x="0.0" y="57.000000000000007" width="343" height="20.333333333333336"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="dHY-xA-Oea">
-                                        <rect key="frame" x="0.0" y="277" width="343" height="77.333333333333314"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🤪" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sY-lR-cng">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Github:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3l-jl-HHJ">
-                                                <rect key="frame" x="0.0" y="57.000000000000007" width="343" height="20.333333333333336"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="1RH-yg-NpD"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="zcw-W6-QXS" firstAttribute="centerX" secondItem="UUJ-yJ-Rig" secondAttribute="centerX" id="2uv-5e-kSN"/>
-                            <constraint firstItem="1RH-yg-NpD" firstAttribute="trailing" secondItem="UUJ-yJ-Rig" secondAttribute="trailing" constant="16" id="EI9-bW-oHt"/>
-                            <constraint firstItem="UUJ-yJ-Rig" firstAttribute="leading" secondItem="1RH-yg-NpD" secondAttribute="leading" constant="16" id="MN4-rL-Sf5"/>
-                            <constraint firstItem="zcw-W6-QXS" firstAttribute="leading" secondItem="1RH-yg-NpD" secondAttribute="leading" constant="54" id="c4y-Fj-izb"/>
-                            <constraint firstItem="UUJ-yJ-Rig" firstAttribute="top" secondItem="zcw-W6-QXS" secondAttribute="bottom" constant="5" id="kog-OU-yna"/>
-                            <constraint firstItem="UUJ-yJ-Rig" firstAttribute="centerY" secondItem="Bog-O7-Oyk" secondAttribute="centerY" constant="-30" id="t2X-Yr-GGZ"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="person.crop.rectangle.fill" catalog="system" id="Vx4-n9-1TA"/>
-                    <navigationItem key="navigationItem" id="kpm-tp-xhK"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ka1-k4-Dud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-283" y="1300"/>
-        </scene>
         <!--Профиль-->
         <scene sceneID="chD-XP-tSK">
             <objects>
-                <viewController id="sr9-iq-szG" customClass="ProfileViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sr9-iq-szG" customClass="ProfileViewController" customModule="QuitSmoke" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W4s-PK-amS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -331,18 +225,9 @@
                             <constraint firstItem="hNg-AC-kkX" firstAttribute="trailing" secondItem="fh6-1b-sgK" secondAttribute="trailing" constant="25" id="r3A-lg-qkY"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Профиль" image="person.fill.checkmark" catalog="system" id="ZQr-jx-yR2">
-                        <color key="badgeColor" systemColor="systemRedColor"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Профиль" image="person.fill.checkmark" catalog="system" id="ZQr-jx-yR2"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Профиль" id="rbL-DP-2lC">
-                        <barButtonItem key="rightBarButtonItem" image="person.2" catalog="system" id="stx-gY-6EN">
-                            <color key="tintColor" systemColor="systemRedColor"/>
-                            <connections>
-                                <segue destination="dFi-qw-ihW" kind="presentation" modalPresentationStyle="fullScreen" id="tfr-AA-U6x"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Профиль" id="rbL-DP-2lC"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="daysLabel" destination="ZLt-GP-wYO" id="xtQ-mb-OTD"/>
@@ -360,7 +245,7 @@
         <!--Settings View Controller-->
         <scene sceneID="wbS-aE-N19">
             <objects>
-                <viewController id="RV3-OR-58V" customClass="SettingsViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RV3-OR-58V" customClass="SettingsViewController" customModule="QuitSmoke" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mKD-Ad-Wkh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -606,8 +491,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="person.2" catalog="system" width="128" height="81"/>
-        <image name="person.crop.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="person.fill.checkmark" catalog="system" width="128" height="88"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
