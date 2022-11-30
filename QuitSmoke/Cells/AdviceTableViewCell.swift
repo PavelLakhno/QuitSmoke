@@ -19,28 +19,13 @@ class AdviceTableViewCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
     }
-
-}
-
-extension AdviceTableViewCell {
-    var isDetailViewHidden: Bool {
-        headerView.isHidden
-    }
-
-    func showDetailView() {
-        headerView.isHidden = false
-    }
-
-    func hideDetailView() {
-        headerView.isHidden = true
-    }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        if isDetailViewHidden, selected {
-            showDetailView()
-        } else {
-            hideDetailView()
-        }
+
+        headerView.isHidden = selected && headerView.isHidden ? false : true
     }
+    
+
 }
+

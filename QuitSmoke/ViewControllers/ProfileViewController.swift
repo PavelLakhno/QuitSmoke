@@ -127,7 +127,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func getEconomyTime() -> String {
-        print(count)
+        
         return "\((count) / (user.person.timeForSmoke * 60) / 60) мин"
     }
 

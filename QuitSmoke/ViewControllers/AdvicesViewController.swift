@@ -41,17 +41,11 @@ class AdvicesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? AdviceTableViewCell {
-            cell.hideDetailView()
+            
+            cell.headerView.isHidden = true
         }
     }
 
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        var height: CGFloat = 70
-//        if let cell = tableView.cellForRow(at: indexPath) as? AdviceTableViewCell {
-//            height = cell.isDetailViewHidden ? 70 : 300
-//        }
-//        return height
-//    }
 }
 
 

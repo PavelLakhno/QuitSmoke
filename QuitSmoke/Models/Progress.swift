@@ -10,6 +10,7 @@ import Foundation
 struct Progress {
     let iconName: String
     let timeTitle: String
+    let time: Int
     let description: String
     
 //    let iconSuccess: String
@@ -22,11 +23,13 @@ struct Progress {
         
         let iconNames = dataStore.icons
         let timeTitles = dataStore.titles
+        let times = dataStore.times
         let descriptions = dataStore.descriptons
         
         let minValue = min(
             iconNames.count,
             timeTitles.count,
+            times.count,
             descriptions.count
         )
         
@@ -34,6 +37,7 @@ struct Progress {
             let progress = Progress(
                 iconName: iconNames[index],
                 timeTitle: timeTitles[index],
+                time: times[index],
                 description: descriptions[index]
             )
             progresses.append(progress)

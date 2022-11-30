@@ -186,7 +186,7 @@
                                         <color key="tintColor" systemColor="systemRedColor"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Настройка" cornerStyle="large">
                                             <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
-                                            <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="RV3-OR-58V" kind="presentation" modalPresentationStyle="fullScreen" id="BIH-AY-Tvc"/>
@@ -200,7 +200,7 @@
                                         <state key="normal" title="Сдаться"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Бросить" cornerStyle="large">
                                             <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
-                                            <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="startStopTapped:" destination="sr9-iq-szG" eventType="touchUpInside" id="zcu-uG-xqV"/>
@@ -272,7 +272,7 @@
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" minValue="1" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="66X-Gn-n4V">
                                         <rect key="frame" x="-2" y="41.333333333333343" width="347" height="27.333333333333329"/>
-                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
                                         <connections>
                                             <action selector="setupSettings:" destination="RV3-OR-58V" eventType="valueChanged" id="7r0-4l-WTD"/>
                                         </connections>
@@ -296,7 +296,7 @@
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="tKr-WW-a5f">
                                         <rect key="frame" x="-2" y="123.99999999999996" width="347" height="27.333333333333329"/>
-                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
                                         <connections>
                                             <action selector="setupSettings:" destination="RV3-OR-58V" eventType="valueChanged" id="6Z5-VX-UdM"/>
                                         </connections>
@@ -320,7 +320,7 @@
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="uia-wb-ujb">
                                         <rect key="frame" x="-2" y="206.66666666666666" width="347" height="27.333333333333343"/>
-                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
                                         <connections>
                                             <action selector="setupSettings:" destination="RV3-OR-58V" eventType="valueChanged" id="YWb-iz-4CY"/>
                                         </connections>
@@ -349,7 +349,7 @@
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="cYi-bs-Nlk">
                                         <rect key="frame" x="-2" y="289.33333333333326" width="347" height="27.333333333333314"/>
-                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
                                         <connections>
                                             <action selector="setupSettings:" destination="RV3-OR-58V" eventType="valueChanged" id="1eE-cc-1bX"/>
                                         </connections>
@@ -389,11 +389,15 @@
                             </stackView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfI-yM-4jn">
                                 <rect key="frame" x="16" y="43.999999999999986" width="343" height="214.66666666666663"/>
-                                <color key="tintColor" systemColor="systemRedColor"/>
                                 <date key="date" timeIntervalSinceReferenceDate="688825945.36953998">
                                     <!--2022-10-30 12:32:25 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="ru"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0fe-eo-dQo"/>
@@ -458,7 +462,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" systemColor="systemRedColor"/>
+                        <color key="selectedImageTintColor" systemColor="systemGreenColor"/>
                         <tabBarAppearance key="standardAppearance">
                             <color key="selectionIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tabBarAppearance>

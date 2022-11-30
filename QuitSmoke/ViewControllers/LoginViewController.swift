@@ -27,6 +27,8 @@ class LoginViewController: UIViewController {
                 for viewController in viewControllers {
                     if let profileVC = viewController as? ProfileViewController {
                         profileVC.user = user
+                    } else if let progressVC = viewController as? ProgressViewController {
+                        progressVC.user = user
                     }
                 }       
             }

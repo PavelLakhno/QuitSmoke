@@ -14,5 +14,13 @@ class ProgressTableViewCell: UITableViewCell {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.systemGray.cgColor
+        layer.cornerRadius = 15
+    }
 
 }
