@@ -14,6 +14,13 @@ class AdvicesViewController: UITableViewController {
         super.viewDidLoad()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.topItem?.title = "21 days"
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+    }
 
     // MARK: - TableViewDataSource
     

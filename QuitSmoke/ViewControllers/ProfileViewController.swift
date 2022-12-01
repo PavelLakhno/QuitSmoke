@@ -19,8 +19,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
-    @IBOutlet weak var startStopButton: UIButton!
-    
     var user: User!
     
     var timer = Timer()
@@ -29,32 +27,35 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.title = "Profile"
+
         startStopTimer(timerCounting)
         count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "gearshape.fill"),
+            style: .done,
+            target: self,
+            action: #selector(showSettingsVC)
+        )
+        navigationController?.navigationBar.tintColor = .systemGreen
+        navigationController?.navigationBar.topItem?.title = "Profile"
+        
+        //let appearance = UINavigationBarAppearance()
+        //navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor .orange]
+        //navigationController?.navigationBar.scrollEdgeAppearance?.titleTextAttributes = [.foregroundColor: UIColor .orange]
+        //appearance.titleTextAttributes = [.foregroundColor: UIColor.red]
+        //appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.red]
+
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let settingsVC = segue.destination as? SettingsViewController {
             settingsVC.user = user
             settingsVC.delegate = self
-        }
-    }
-
-    // MARK: IBActions
-    @IBAction func startStopTapped(_ sender: UIButton) {        
-        if (timerCounting) {
-            giveUp()
-            timerCounting = false
-            startStopTimer(timerCounting)
-            startStopButton.setTitle("Бросаю", for: .normal)
-            startStopButton.setTitleColor(UIColor.white, for: .normal)
-            
-        } else {
-            timerCounting = true
-            startStopTimer(timerCounting)
-            startStopButton.setTitle("Сдаюсь", for: .normal)
-            startStopButton.setTitleColor(UIColor.white, for: .normal)
         }
     }
     
@@ -72,22 +73,6 @@ class ProfileViewController: UIViewController {
             timer.invalidate()
         }
     }
-
-    func giveUp() {
-            self.user.person.dateQuitSmoke = Date()
-            self.user.person.amountCigarettsDay = 1
-            self.user.person.amountCigarettsBox = 1
-            self.user.person.priceBoxCigaretts = 1
-            self.user.person.timeForSmoke = 1
-            self.count = 0
-            self.economyTime.text = "0 руб"
-            self.economyMoney.text = "0 руб"
-            self.passCigaretts.text = "0 шт"
-            self.daysLabel.text = "0"
-            self.timerLabel.text = self.makeTimeString(hours: 0, minutes: 0, seconds: 0)
-            startStopButton.isEnabled = false
-    }
-    
         
     @objc func timerCounter() {
         count += 1
@@ -99,6 +84,10 @@ class ProfileViewController: UIViewController {
         economyTime.text = getEconomyTime()
         economyMoney.text = getEconomyMoney()
         passCigaretts.text = getCountNoSmokeCig()
+    }
+    
+    @objc func showSettingsVC() {
+        performSegue(withIdentifier: "settingsVC", sender: nil)
     }
     
     
@@ -149,6 +138,5 @@ extension ProfileViewController : SettingsViewControllerDelegate {
     func setupSettingsTo(user: User) {
         self.user = user
         count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
-        startStopButton.isEnabled = true
     }
 }

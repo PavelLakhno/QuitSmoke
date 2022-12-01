@@ -15,7 +15,15 @@ class ProgressViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //navigationController?.navigationBar.topItem?.title = "Progress"
         //tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.topItem?.title = "Progress"
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
     }
 }
 
@@ -49,10 +57,6 @@ extension ProgressViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        150.0
-    }
-    
     //MARK: Private Methods
     
     private func getTimeIntervalFrom(date: Date) -> Int {

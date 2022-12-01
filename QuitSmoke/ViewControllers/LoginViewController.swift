@@ -30,10 +30,11 @@ class LoginViewController: UIViewController {
                     } else if let progressVC = viewController as? ProgressViewController {
                         progressVC.user = user
                     }
-                }       
+                }
             }
         }
     }
+    
 
     @IBAction func logInPressed() {
         guard userNameTextField.text == user.logIn, passwordTextField.text == user.password else {

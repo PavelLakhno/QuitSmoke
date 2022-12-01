@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Info-->
+        <!--Title 3-->
         <scene sceneID="5GW-tT-99T">
             <objects>
                 <tableViewController storyboardIdentifier="AdvicesViewController" id="qzr-ot-Gje" customClass="AdvicesViewController" customModule="QuitSmoke" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,6 +73,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Info" image="scribble" catalog="system" id="Msn-xe-X6e"/>
+                    <navigationItem key="navigationItem" title="Title 3" id="Wbo-mf-L5d"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5e-gs-yk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
