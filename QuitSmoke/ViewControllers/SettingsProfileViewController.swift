@@ -11,31 +11,58 @@ class SettingsProfileViewController: UIViewController {
 
     
     @IBOutlet weak var dateTextFeild: UITextField!
+    @IBOutlet weak var priceCiggaretsTextField: UITextField!
     
-    let iphonePicker = UIPickerView()
-    let datePicker = UIDatePicker()
+    @IBOutlet weak var cigaInDay: UIStepper!
+    @IBOutlet weak var cigsOfBox: UIStepper!
+    
+    var datePicker: UIDatePicker!
+    let pricePicker = UIPickerView()
     let toolbar = UIToolbar()
     
-    var phoneList = ["iphone 4s" ,"iphone 5s" , "iphone 6s" , "iphone 7 plus" , "iphone 8" , "iphone XR" , "iphone 11" , "iphone 11 pro"]
+    let priceList = Array(1...500)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let label = UILabel.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        label.text = "25"
+        cigaInDay.setDecrementImage(cigaInDay.decrementImage(for: .normal), for: .normal)
+        cigaInDay.setIncrementImage(cigaInDay.incrementImage(for: .normal), for: .normal)
+        cigaInDay.tintColor = .systemGreen
         
-        iphonePicker.delegate = self
-        iphonePicker.dataSource = self
-        //dateTextFeild.inputView = iphonePicker
+        cigsOfBox.setDecrementImage(cigsOfBox.decrementImage(for: .normal), for: .normal)
+        cigsOfBox.setIncrementImage(cigsOfBox.incrementImage(for: .normal), for: .normal)
+        cigsOfBox.tintColor = .systemGreen
+        
+        pricePicker.delegate = self
+        pricePicker.dataSource = self
+        pricePicker.backgroundColor = .darkGray
+        pricePicker.setValue(UIColor.white, forKeyPath: "textColor")
+
+        
+        priceCiggaretsTextField.inputView = pricePicker
+        datePicker = createDatePicker()
         dateTextFeild.inputView = datePicker
-        toolbar.sizeToFit()
-        let donebtn = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
+        dateTextFeild.layer.cornerRadius = dateTextFeild.frame.height/2
+        priceCiggaretsTextField.layer.cornerRadius = priceCiggaretsTextField.frame.height/2
         
-        toolbar.items = [donebtn]
         dateTextFeild.inputAccessoryView = toolbar
-    }
-    @objc func doneButtonPressed() {
+        priceCiggaretsTextField.inputAccessoryView = toolbar
         
-        let selectedPhone = phoneList[iphonePicker.selectedRow(inComponent: 0)]
-        dateTextFeild.text = selectedPhone
-        self.view.endEditing(true)
+        
+        
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
+        toolbar.barTintColor = .darkGray
+        
+        toolbar.sizeToFit()
+        toolbar.items = [doneButton]
+        toolbar.tintColor = .systemGreen
+        
+    }
+    
+    @objc func doneButtonPressed(sender: Any) {
+        view.endEditing(true)
     }
     
 }
@@ -44,16 +71,50 @@ class SettingsProfileViewController: UIViewController {
 
 extension SettingsProfileViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-       return 1
+        return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        phoneList.count
+        priceList.count
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return phoneList[row]
+        return String(priceList[row])
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        priceCiggaretsTextField.text = String("\(priceList[row])  rub")
+    }
+    
+    @objc func dateChange(datePicker: UIDatePicker) {
+        dateTextFeild.text = formatDate(date: datePicker.date)
+    }
+    
+    private func createDatePicker() -> UIDatePicker {
+        let datePicker = UIDatePicker()
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.addTarget(
+            self,
+            action: #selector(dateChange(datePicker:)),
+            for: UIControl.Event.valueChanged
+        )
+        datePicker.tintColor = .white
+        datePicker.backgroundColor = .darkGray
+        datePicker.overrideUserInterfaceStyle = .dark
+        datePicker.locale = Locale(identifier: "ru_RU")
+        datePicker.maximumDate = Date()
+        return datePicker
+    }
+    
+    private func formatDate(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMMM yyyy"
+        
+        return formatter.string(from: date)
+    }
+   
 }
+
+
 
