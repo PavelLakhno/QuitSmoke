@@ -19,17 +19,44 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
+    @IBOutlet weak var progressView: UIView!
+    @IBOutlet weak var adviceView: UIView!
+    
     var user: User!
     
     var timer = Timer()
     var count = 0
     var timerCounting = true
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         startStopTimer(timerCounting)
         count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
+        setLayerFor(subView: adviceView)
+        setLayerFor(subView: progressView)
+        
+        //progressView.layer.addSublayer(shapeLayer)
+        
+    }
+    
+    private func setLayerFor(subView: UIView) {
+        let shapeLayer = CAShapeLayer()
+        let center = subView.center
+        let circularPath = UIBezierPath(arcCenter: center, radius: subView.frame.size.height/2, startAngle: -CGFloat.pi, endAngle: 2*CGFloat.pi, clockwise: true)
+        shapeLayer.path = circularPath.cgPath
+        
+        shapeLayer.strokeColor = UIColor.systemGreen.cgColor
+        shapeLayer.lineWidth = 5
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.lineCap = CAShapeLayerLineCap.round
+        print(center)
+        print(view.frame.size)
+        print(subView.center)
+        shapeLayer.strokeEnd = 0.5
+        subView.layer.addSublayer(shapeLayer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,18 +69,10 @@ class ProfileViewController: UIViewController {
         )
         navigationController?.navigationBar.tintColor = .systemGreen
         navigationController?.navigationBar.topItem?.title = "Profile"
-        
-        //let appearance = UINavigationBarAppearance()
-        //navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor .orange]
-        //navigationController?.navigationBar.scrollEdgeAppearance?.titleTextAttributes = [.foregroundColor: UIColor .orange]
-        //appearance.titleTextAttributes = [.foregroundColor: UIColor.red]
-        //appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.red]
-
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let settingsVC = segue.destination as? SettingsViewController {
+        if let settingsVC = segue.destination as? SettingsProfileViewController {
             settingsVC.user = user
             settingsVC.delegate = self
         }
