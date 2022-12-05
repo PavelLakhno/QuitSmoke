@@ -25,10 +25,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UEX-hZ-CbR">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOW-lJ-ibd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwK-Fi-e83">
                                                             <rect key="frame" x="8" y="12" width="358" height="50"/>
@@ -44,7 +44,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aak-C6-peO">
-                                                    <rect key="frame" x="0.0" y="70" width="374" height="230"/>
+                                                    <rect key="frame" x="0.0" y="70" width="414" height="230"/>
                                                     <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="229" id="uBb-tr-obO"/>
@@ -55,9 +55,9 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="UEX-hZ-CbR" secondAttribute="bottom" id="2Ps-Gr-3mp"/>
+                                        <constraint firstAttribute="trailing" secondItem="UEX-hZ-CbR" secondAttribute="trailing" id="BTY-bX-TV0"/>
                                         <constraint firstItem="UEX-hZ-CbR" firstAttribute="top" secondItem="SvF-ti-KTh" secondAttribute="top" id="HbQ-xn-duD"/>
-                                        <constraint firstAttribute="trailing" secondItem="UEX-hZ-CbR" secondAttribute="trailing" constant="20" symbolic="YES" id="PTf-6Z-fI8"/>
-                                        <constraint firstItem="UEX-hZ-CbR" firstAttribute="leading" secondItem="SvF-ti-KTh" secondAttribute="leading" constant="20" symbolic="YES" id="g1t-sm-d8Z"/>
+                                        <constraint firstItem="UEX-hZ-CbR" firstAttribute="leading" secondItem="SvF-ti-KTh" secondAttribute="leading" id="Mwc-7H-GLF"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

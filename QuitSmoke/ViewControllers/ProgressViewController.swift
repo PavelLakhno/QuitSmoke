@@ -48,7 +48,7 @@ extension ProgressViewController {
         cell.timeLabel.text = achievements[indexPath.row].timeTitle
         cell.descriptionLabel.text = achievements[indexPath.row].description
         cell.iconImageView.image = UIImage(named: achievements[indexPath.row].iconName)
-        cell.successImageView.image = UIImage(named: "Ok")
+        cell.successLabel.text = "56%"
         
         UIView.animate(withDuration: 2.0) {
             cell.progressView.setProgress(progressTime, animated: true)

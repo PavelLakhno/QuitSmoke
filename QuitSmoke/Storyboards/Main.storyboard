@@ -177,26 +177,24 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Phe-LC-Tc3">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Phe-LC-Tc3">
                                 <rect key="frame" x="27.666666666666657" y="549" width="320" height="150"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1h-n0-tY1">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="gas-xb-hIg"/>
                                             <constraint firstAttribute="width" constant="150" id="nXe-0e-gPd"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHb-28-cru">
                                         <rect key="frame" x="170" y="0.0" width="150" height="150"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="uMY-Ji-atH"/>
-                                            <constraint firstAttribute="width" constant="150" id="uOo-JP-gUu"/>
-                                        </constraints>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="V0P-ai-MdN"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hNg-AC-kkX"/>
@@ -216,6 +214,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="adviceView" destination="mHb-28-cru" id="Zwq-C4-xZq"/>
+                        <outlet property="containerView" destination="Phe-LC-Tc3" id="9RB-TC-qgn"/>
                         <outlet property="daysLabel" destination="ZLt-GP-wYO" id="xtQ-mb-OTD"/>
                         <outlet property="economyMoney" destination="ueJ-Tj-igM" id="dnb-e4-x84"/>
                         <outlet property="economyTime" destination="43w-xB-dZD" id="1xJ-EW-bhi"/>
@@ -228,197 +227,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvn-fQ-02v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="620" y="1294.5812807881773"/>
-        </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="wbS-aE-N19">
-            <objects>
-                <viewController id="RV3-OR-58V" customClass="SettingsViewController" customModule="QuitSmoke" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mKD-Ad-Wkh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="a8l-WZ-viy">
-                                <rect key="frame" x="16" y="248.33333333333334" width="343" height="315.66666666666663"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Oa-Vi-WnK">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="26.333333333333332"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Стоимость пачки сигарет:" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDI-B7-rIW">
-                                                <rect key="frame" x="0.0" y="0.0" width="258.33333333333331" height="26.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120 руб" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pL-8q-BOf">
-                                                <rect key="frame" x="266.33333333333331" y="0.0" width="76.666666666666686" height="26.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" minValue="1" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="66X-Gn-n4V">
-                                        <rect key="frame" x="-2" y="41.333333333333343" width="347" height="27.333333333333329"/>
-                                        <color key="tintColor" systemColor="systemGreenColor"/>
-                                        <connections>
-                                            <action selector="setupSettings:" destination="RV3-OR-58V" eventType="valueChanged" id="7r0-4l-WTD"/>
-                                        </connections>
-                                    </slider>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Pwa-jl-eM3">
-                                        <rect key="frame" x="0.0" y="82.666666666666657" width="343" height="26.333333333333329"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Количество сигарет в пачке:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6c7-Kx-gd3">
-                                                <rect key="frame" x="0.0" y="0.0" width="263" height="26.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="20 шт" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOC-ET-UXl">
-                                                <rect key="frame" x="266" y="0.0" width="77" height="26.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="tKr-WW-a5f">
-                                        <rect key="frame" x="-2" y="123.99999999999996" width="347" height="27.333333333333329"/>
-                                        <color key="tintColor" systemColor="systemGreenColor"/>
-                                        <connections>
-                                            <action selector="setupSettings:" destination="RV3-OR-58V" eventType="valueChanged" id="6Z5-VX-UdM"/>
-                                        </connections>
-                                    </slider>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="azW-Kf-vPJ">
-                                        <rect key="frame" x="0.0" y="165.33333333333334" width="343" height="26.333333333333343"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Количество сигарет в день:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwd-F4-8a9">
-                                                <rect key="frame" x="0.0" y="0.0" width="253.33333333333334" height="26.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="20 шт" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLw-93-SH9">
-                                                <rect key="frame" x="255.33333333333329" y="0.0" width="87.666666666666657" height="26.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="uia-wb-ujb">
-                                        <rect key="frame" x="-2" y="206.66666666666666" width="347" height="27.333333333333343"/>
-                                        <color key="tintColor" systemColor="systemGreenColor"/>
-                                        <connections>
-                                            <action selector="setupSettings:" destination="RV3-OR-58V" eventType="valueChanged" id="YWb-iz-4CY"/>
-                                        </connections>
-                                    </slider>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="m3P-pS-xEn">
-                                        <rect key="frame" x="0.0" y="247.99999999999997" width="343" height="26.333333333333343"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="R7z-Ue-cY5">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="26.333333333333332"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время на перекур:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVd-Xd-vOi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="26.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="3 мин" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1n-3x-sDr">
-                                                        <rect key="frame" x="232.66666666666666" y="0.0" width="110.33333333333334" height="26.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="cYi-bs-Nlk">
-                                        <rect key="frame" x="-2" y="289.33333333333326" width="347" height="27.333333333333314"/>
-                                        <color key="tintColor" systemColor="systemGreenColor"/>
-                                        <connections>
-                                            <action selector="setupSettings:" destination="RV3-OR-58V" eventType="valueChanged" id="1eE-cc-1bX"/>
-                                        </connections>
-                                    </slider>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="CsK-5h-tWJ">
-                                <rect key="frame" x="16" y="641.33333333333337" width="343" height="96.666666666666629"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нажимая кнопку «Согласен», Вы подписываете договор с совестью" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGI-PC-HXQ">
-                                        <rect key="frame" x="32.666666666666657" y="0.0" width="277.66666666666674" height="40.666666666666664"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UdX-yb-LWe">
-                                        <rect key="frame" x="115.33333333333334" y="59.666666666666629" width="112.66666666666666" height="37"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" cornerStyle="large">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Согласен">
-                                                    <attributes>
-                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="20" name="Helvetica"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="didTappedAction" destination="RV3-OR-58V" eventType="touchUpInside" id="Mq0-AT-beh"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfI-yM-4jn">
-                                <rect key="frame" x="16" y="43.999999999999986" width="343" height="214.66666666666663"/>
-                                <date key="date" timeIntervalSinceReferenceDate="688825945.36953998">
-                                    <!--2022-10-30 12:32:25 +0000-->
-                                </date>
-                                <locale key="locale" localeIdentifier="ru"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </datePicker>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="0fe-eo-dQo"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="0fe-eo-dQo" firstAttribute="bottom" secondItem="CsK-5h-tWJ" secondAttribute="bottom" constant="40" id="DcV-Mj-4LG"/>
-                            <constraint firstItem="HfI-yM-4jn" firstAttribute="top" secondItem="0fe-eo-dQo" secondAttribute="top" id="RiP-Ty-SsD"/>
-                            <constraint firstItem="CsK-5h-tWJ" firstAttribute="leading" secondItem="0fe-eo-dQo" secondAttribute="leading" constant="16" id="VSC-Oa-hlQ"/>
-                            <constraint firstItem="a8l-WZ-viy" firstAttribute="leading" secondItem="0fe-eo-dQo" secondAttribute="leading" constant="16" id="X1y-1P-MAX"/>
-                            <constraint firstItem="0fe-eo-dQo" firstAttribute="trailing" secondItem="HfI-yM-4jn" secondAttribute="trailing" constant="16" id="Y3n-eG-NcJ"/>
-                            <constraint firstItem="a8l-WZ-viy" firstAttribute="top" secondItem="HfI-yM-4jn" secondAttribute="bottom" constant="-10.333333333333371" id="YN5-QF-5jh"/>
-                            <constraint firstItem="a8l-WZ-viy" firstAttribute="centerY" secondItem="mKD-Ad-Wkh" secondAttribute="centerY" id="bzW-eH-hY4"/>
-                            <constraint firstItem="0fe-eo-dQo" firstAttribute="trailing" secondItem="a8l-WZ-viy" secondAttribute="trailing" constant="16" id="fJf-Fm-FS0"/>
-                            <constraint firstAttribute="trailing" secondItem="CsK-5h-tWJ" secondAttribute="trailing" constant="16" id="izm-0m-uXj"/>
-                            <constraint firstItem="HfI-yM-4jn" firstAttribute="leading" secondItem="0fe-eo-dQo" secondAttribute="leading" constant="16" id="jYR-2l-3bJ"/>
-                            <constraint firstItem="a8l-WZ-viy" firstAttribute="centerX" secondItem="mKD-Ad-Wkh" secondAttribute="centerX" id="poQ-R5-CnV"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="YWZ-wh-rgL"/>
-                    <connections>
-                        <outlet property="amountCigarettsBox" destination="LOC-ET-UXl" id="JEU-aJ-Ffo"/>
-                        <outlet property="amountCigarettsDay" destination="JLw-93-SH9" id="rND-UZ-2k6"/>
-                        <outlet property="amountCigarettsDaySlider" destination="uia-wb-ujb" id="jGH-9a-Inm"/>
-                        <outlet property="amountInBoxSlider" destination="tKr-WW-a5f" id="qP0-Ev-FGm"/>
-                        <outlet property="datePicker" destination="HfI-yM-4jn" id="kNc-89-Gze"/>
-                        <outlet property="priceBoxCigaretts" destination="3pL-8q-BOf" id="9Lb-ei-urt"/>
-                        <outlet property="priceBoxSlider" destination="66X-Gn-n4V" id="e2T-7H-yoM"/>
-                        <outlet property="timeForSmoke" destination="U1n-3x-sDr" id="HIF-LI-83c"/>
-                        <outlet property="timeForSmokeSlider" destination="cYi-bs-Nlk" id="nlH-N4-jqJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qgJ-Gx-e0l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="621.53846153846155" y="2050.9478672985783"/>
         </scene>
         <!--Settings Profile View Controller-->
         <scene sceneID="Vs9-qV-QnS">
@@ -564,7 +372,6 @@
                                         <color key="tintColor" systemColor="systemGreenColor"/>
                                         <connections>
                                             <action selector="didTappedStepper:" destination="Exr-As-HmT" eventType="valueChanged" id="kb0-FA-oAz"/>
-                                            <action selector="setupSettings:" destination="RV3-OR-58V" eventType="valueChanged" id="XNA-t4-jwR"/>
                                         </connections>
                                     </slider>
                                 </subviews>
@@ -592,10 +399,9 @@
                                                 </fragment>
                                             </attributedString>
                                             <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                            <color key="baseBackgroundColor" red="0.20337828990000001" green="0.78004091980000001" blue="0.34776753189999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="didTappedAction" destination="RV3-OR-58V" eventType="touchUpInside" id="Ofe-tn-KcY"/>
                                             <action selector="didTappedAction" destination="Exr-As-HmT" eventType="touchUpInside" id="wmy-2z-r8S"/>
                                         </connections>
                                     </button>
@@ -639,7 +445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zTv-YR-wcn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1417" y="2050"/>
+            <point key="canvasLocation" x="620" y="2039"/>
         </scene>
         <!--ProgressViewController-->
         <scene sceneID="ixT-D7-Zt6">

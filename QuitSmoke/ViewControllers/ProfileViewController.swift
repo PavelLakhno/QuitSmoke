@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var adviceView: UIView!
+    @IBOutlet weak var containerView: UIStackView!
     
     var user: User!
     
@@ -29,36 +30,46 @@ class ProfileViewController: UIViewController {
     var timerCounting = true
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         startStopTimer(timerCounting)
         count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
+        
         setLayerFor(subView: adviceView)
         setLayerFor(subView: progressView)
-        
-        //progressView.layer.addSublayer(shapeLayer)
-        
+
     }
     
     private func setLayerFor(subView: UIView) {
         let shapeLayer = CAShapeLayer()
-        let center = subView.center
-        let circularPath = UIBezierPath(arcCenter: center, radius: subView.frame.size.height/2, startAngle: -CGFloat.pi, endAngle: 2*CGFloat.pi, clockwise: true)
-        shapeLayer.path = circularPath.cgPath
+        shapeLayer.shadowRadius = 15
+        shapeLayer.shadowColor = UIColor.black.cgColor
+        shapeLayer.opacity = 1
+        shapeLayer.shadowOffset = .zero
         
+        let center = subView.center
+        let circularPath = UIBezierPath(
+            arcCenter: center,
+            radius: subView.frame.size.width/2,
+            startAngle: -CGFloat.pi,
+            endAngle: 2*CGFloat.pi,
+            clockwise: true
+        )
+        
+        shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeColor = UIColor.systemGreen.cgColor
         shapeLayer.lineWidth = 5
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineCap = CAShapeLayerLineCap.round
-        print(center)
-        print(view.frame.size)
-        print(subView.center)
         shapeLayer.strokeEnd = 0.5
-        subView.layer.addSublayer(shapeLayer)
+
+        
+        containerView.layer.addSublayer(shapeLayer)
     }
     
+  
+   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(

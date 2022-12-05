@@ -27,33 +27,37 @@
                                             <rect key="frame" x="20" y="11" width="374" height="148"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="urh-fB-txh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IGe-9g-NL7">
-                                                            <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="35" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="35" id="gNb-dc-MHH"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6I-lo-AR6">
-                                                            <rect key="frame" x="46" y="0.0" width="282" height="35"/>
+                                                            <rect key="frame" x="46" y="0.0" width="277" height="40"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ku9-kL-mYz">
-                                                            <rect key="frame" x="339" y="0.0" width="35" height="35"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gci-dB-Ohm">
+                                                            <rect key="frame" x="334" y="0.0" width="40" height="40"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="35" id="cXd-zG-TWI"/>
+                                                                <constraint firstAttribute="width" constant="40" id="OcY-RJ-6VP"/>
+                                                                <constraint firstAttribute="height" constant="40" id="xJ1-4O-Kr3"/>
                                                             </constraints>
-                                                        </imageView>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="systemGreenColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="Io2-bS-Osa"/>
+                                                        <constraint firstAttribute="height" constant="40" id="Io2-bS-Osa"/>
                                                     </constraints>
                                                 </stackView>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XGN-fP-tnh">
-                                                    <rect key="frame" x="0.0" y="79.5" width="374" height="4"/>
+                                                    <rect key="frame" x="0.0" y="82" width="374" height="4"/>
                                                     <color key="tintColor" systemColor="systemGreenColor"/>
                                                 </progressView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGY-17-IdF">
@@ -80,7 +84,7 @@
                                     <outlet property="descriptionLabel" destination="IGY-17-IdF" id="FSS-u0-Fz6"/>
                                     <outlet property="iconImageView" destination="IGe-9g-NL7" id="xKr-1I-t4M"/>
                                     <outlet property="progressView" destination="XGN-fP-tnh" id="7RZ-h6-uaZ"/>
-                                    <outlet property="successImageView" destination="ku9-kL-mYz" id="bIY-rh-gpe"/>
+                                    <outlet property="successLabel" destination="gci-dB-Ohm" id="Ec8-9T-yhG"/>
                                     <outlet property="timeLabel" destination="f6I-lo-AR6" id="itD-QU-EH7"/>
                                 </connections>
                             </tableViewCell>
