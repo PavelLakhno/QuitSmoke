@@ -42,29 +42,33 @@ class ProfileViewController: UIViewController {
     }
     
     private func setLayerFor(subView: UIView) {
+        
+        let subShapeLayer = CAShapeLayer()
         let shapeLayer = CAShapeLayer()
-        shapeLayer.shadowRadius = 15
-        shapeLayer.shadowColor = UIColor.black.cgColor
-        shapeLayer.opacity = 1
-        shapeLayer.shadowOffset = .zero
         
         let center = subView.center
         let circularPath = UIBezierPath(
             arcCenter: center,
             radius: subView.frame.size.width/2,
-            startAngle: -CGFloat.pi,
+            startAngle: -CGFloat.pi/2,
             endAngle: 2*CGFloat.pi,
             clockwise: true
         )
+        subShapeLayer.path = circularPath.cgPath
+        subShapeLayer.strokeColor = UIColor.gray.cgColor
+        subShapeLayer.lineWidth = 5
+        subShapeLayer.fillColor = UIColor.clear.cgColor
+        subShapeLayer.lineCap = CAShapeLayerLineCap.round
+        subShapeLayer.strokeEnd = 1
         
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeColor = UIColor.systemGreen.cgColor
         shapeLayer.lineWidth = 5
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineCap = CAShapeLayerLineCap.round
-        shapeLayer.strokeEnd = 0.5
+        shapeLayer.strokeEnd = 14/21
 
-        
+        containerView.layer.addSublayer(subShapeLayer)
         containerView.layer.addSublayer(shapeLayer)
     }
     

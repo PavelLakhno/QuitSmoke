@@ -8,8 +8,12 @@
 import UIKit
 
 class AdvicesViewController: UITableViewController {
-    
    
+    var user: User!
+    private var progressTime: Float {
+        Float(getTimeIntervalFrom(date: user.person.dateQuitSmoke))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +38,16 @@ class AdvicesViewController: UITableViewController {
             for: indexPath
         ) as! AdviceTableViewCell
         
-        cell.nameLabel.text = "\(indexPath.row)"
+        cell.isUserInteractionEnabled = Int(progressTime / 86400) >= indexPath.row
+        cell.titleLabel.text = "Information"
+        cell.numberOfDay.text = "\(indexPath.row + 1)"
+        
+        if cell.isUserInteractionEnabled {
+            cell.isPassedDay.text = "☑︎"
+        } else {
+            cell.isPassedDay.text = "☒"
+            cell.isPassedDay.textColor = .gray
+        }
 
         return cell
     }
@@ -48,9 +61,14 @@ class AdvicesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? AdviceTableViewCell {
-            
             cell.headerView.isHidden = true
         }
+    }
+    
+    //MARK: Private Methods
+    
+    private func getTimeIntervalFrom(date: Date) -> Int {
+        Int(Date().timeIntervalSinceReferenceDate - date.timeIntervalSinceReferenceDate)
     }
 
 }

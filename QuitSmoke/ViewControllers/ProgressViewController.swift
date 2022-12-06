@@ -15,8 +15,7 @@ class ProgressViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //navigationController?.navigationBar.topItem?.title = "Progress"
-        //tableView.dataSource = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,10 +47,11 @@ extension ProgressViewController {
         cell.timeLabel.text = achievements[indexPath.row].timeTitle
         cell.descriptionLabel.text = achievements[indexPath.row].description
         cell.iconImageView.image = UIImage(named: achievements[indexPath.row].iconName)
-        cell.successLabel.text = "56%"
+        
+        cell.successLabel.text = progressTime < 1 ? "\(Int(progressTime * 100))%" : "\u{2713}"
         
         UIView.animate(withDuration: 2.0) {
-            cell.progressView.setProgress(progressTime, animated: true)
+            cell.progressView.setProgress(progressTime, animated: false)
         }
 
         return cell
