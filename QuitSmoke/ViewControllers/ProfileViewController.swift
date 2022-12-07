@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController {
             arcCenter: center,
             radius: subView.frame.size.width/2,
             startAngle: -CGFloat.pi/2,
-            endAngle: 2*CGFloat.pi,
+            endAngle: 3*CGFloat.pi/2,
             clockwise: true
         )
         subShapeLayer.path = circularPath.cgPath
@@ -59,15 +59,23 @@ class ProfileViewController: UIViewController {
         subShapeLayer.lineWidth = 5
         subShapeLayer.fillColor = UIColor.clear.cgColor
         subShapeLayer.lineCap = CAShapeLayerLineCap.round
-        subShapeLayer.strokeEnd = 1
+        //subShapeLayer.strokeEnd = 0.2
         
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeColor = UIColor.systemGreen.cgColor
         shapeLayer.lineWidth = 5
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineCap = CAShapeLayerLineCap.round
-        shapeLayer.strokeEnd = 14/21
+        shapeLayer.strokeEnd = 2/21
 
+        let labelCompleted = UILabel()
+        labelCompleted.text = "Completed"
+        labelCompleted.textColor = .white
+        //labelCompleted.translatesAutoresizingMaskIntoConstraints = false
+        //labelCompleted.center = subView.center
+        
+        //subView.addSubview(labelCompleted)
+        //containerView.addSubview(subView)
         containerView.layer.addSublayer(subShapeLayer)
         containerView.layer.addSublayer(shapeLayer)
     }

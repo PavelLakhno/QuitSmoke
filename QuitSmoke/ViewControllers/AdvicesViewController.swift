@@ -10,6 +10,9 @@ import UIKit
 class AdvicesViewController: UITableViewController {
    
     var user: User!
+    
+    private let smokeFacts = Progress.getFacts()
+    
     private var progressTime: Float {
         Float(getTimeIntervalFrom(date: user.person.dateQuitSmoke))
     }
@@ -29,7 +32,7 @@ class AdvicesViewController: UITableViewController {
     // MARK: - TableViewDataSource
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return smokeFacts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,8 +42,10 @@ class AdvicesViewController: UITableViewController {
         ) as! AdviceTableViewCell
         
         cell.isUserInteractionEnabled = Int(progressTime / 86400) >= indexPath.row
-        cell.titleLabel.text = "Information"
+        
+        cell.titleLabel.text = "Fact #\(indexPath.row + 1)"
         cell.numberOfDay.text = "\(indexPath.row + 1)"
+        cell.factLabel.text = smokeFacts[indexPath.row]
         
         if cell.isUserInteractionEnabled {
             cell.isPassedDay.text = "☑︎"
@@ -55,8 +60,8 @@ class AdvicesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.3) {
             tableView.performBatchUpdates(nil)
-
         }
+
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -64,6 +69,7 @@ class AdvicesViewController: UITableViewController {
             cell.headerView.isHidden = true
         }
     }
+
     
     //MARK: Private Methods
     

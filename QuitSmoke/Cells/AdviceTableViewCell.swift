@@ -20,6 +20,7 @@ class AdviceTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var numberOfDay: UILabel!
     @IBOutlet weak var isPassedDay: UILabel!
+    @IBOutlet weak var factLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

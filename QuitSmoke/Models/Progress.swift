@@ -13,6 +13,7 @@ struct Progress {
     let time: Int
     let description: String
     
+    
 //    let iconSuccess: String
 //    let progressStatus: Float
     
@@ -44,5 +45,9 @@ struct Progress {
         }
         
         return progresses
+    }
+    
+    static func getFacts() -> [String] {
+        DataStore.shared.facts
     }
 }

@@ -72,16 +72,28 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="9yg-uC-9oJ"/>
                                                         <constraint firstAttribute="bottom" secondItem="UwK-Fi-e83" secondAttribute="bottom" constant="10" id="AyY-aD-2d0"/>
-                                                        <constraint firstAttribute="height" constant="70" id="cDJ-Um-hTb"/>
                                                         <constraint firstAttribute="trailing" secondItem="UwK-Fi-e83" secondAttribute="trailing" constant="10" id="mqM-xO-X0G"/>
                                                         <constraint firstItem="UwK-Fi-e83" firstAttribute="top" secondItem="bOW-lJ-ibd" secondAttribute="top" constant="10" id="tRp-dj-VL5"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aak-C6-peO">
                                                     <rect key="frame" x="0.0" y="70" width="414" height="230"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBL-FM-MRw">
+                                                            <rect key="frame" x="8" y="8" width="398" height="214"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="NBL-FM-MRw" secondAttribute="trailing" constant="8" id="J6b-9j-TuH"/>
+                                                        <constraint firstItem="NBL-FM-MRw" firstAttribute="top" secondItem="Aak-C6-peO" secondAttribute="top" constant="8" id="Syi-cL-8xS"/>
+                                                        <constraint firstItem="NBL-FM-MRw" firstAttribute="leading" secondItem="Aak-C6-peO" secondAttribute="leading" constant="8" id="dVr-vO-9X4"/>
+                                                        <constraint firstAttribute="bottom" secondItem="NBL-FM-MRw" secondAttribute="bottom" constant="8" id="dfU-gU-glA"/>
                                                         <constraint firstAttribute="height" constant="229" id="uBb-tr-obO"/>
                                                     </constraints>
                                                 </view>
@@ -96,6 +108,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="factLabel" destination="NBL-FM-MRw" id="5rX-xX-49i"/>
                                     <outlet property="headerView" destination="Aak-C6-peO" id="mQR-VH-t3a"/>
                                     <outlet property="isPassedDay" destination="BdH-41-6tO" id="UeA-cs-xnV"/>
                                     <outlet property="numberOfDay" destination="j8K-Qe-hxB" id="rci-Xd-ptM"/>
