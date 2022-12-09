@@ -29,6 +29,9 @@ class ProfileViewController: UIViewController {
     var count = 0
     var timerCounting = true
     
+    let daysProgress = Progress.getFacts()
+    let totalProgress = Progress.getProgressList()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +39,20 @@ class ProfileViewController: UIViewController {
         startStopTimer(timerCounting)
         count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
         
-        setLayerFor(subView: adviceView)
-        setLayerFor(subView: progressView)
+        let days = count / 86400
+        var total = 0
+        for advice in totalProgress {
+            if count / advice.time >= 1 {
+                total += 1
+            }
+        }
+        
+        setLayerFor(subView: adviceView, completedCounter: (days, daysProgress.count))
+        setLayerFor(subView: progressView, completedCounter: (total, totalProgress.count))
 
     }
     
-    private func setLayerFor(subView: UIView) {
+    private func setLayerFor(subView: UIView, completedCounter: (Int, Int)) {
         
         let subShapeLayer = CAShapeLayer()
         let shapeLayer = CAShapeLayer()
@@ -59,25 +70,28 @@ class ProfileViewController: UIViewController {
         subShapeLayer.lineWidth = 5
         subShapeLayer.fillColor = UIColor.clear.cgColor
         subShapeLayer.lineCap = CAShapeLayerLineCap.round
-        //subShapeLayer.strokeEnd = 0.2
-        
+        subShapeLayer.shadowColor = UIColor.black.cgColor
+        subShapeLayer.shadowOpacity = 1
+        subShapeLayer.shadowOffset = .zero
+        subShapeLayer.shadowRadius = 10
+
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeColor = UIColor.systemGreen.cgColor
         shapeLayer.lineWidth = 5
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineCap = CAShapeLayerLineCap.round
-        shapeLayer.strokeEnd = 2/21
-
-        let labelCompleted = UILabel()
-        labelCompleted.text = "Completed"
-        labelCompleted.textColor = .white
-        //labelCompleted.translatesAutoresizingMaskIntoConstraints = false
-        //labelCompleted.center = subView.center
+        shapeLayer.strokeEnd = CGFloat(completedCounter.0) / CGFloat(completedCounter.1)
         
-        //subView.addSubview(labelCompleted)
-        //containerView.addSubview(subView)
+        let labelCompleted = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+        labelCompleted.center = subView.center
+        labelCompleted.text = "\(completedCounter.0)/\(completedCounter.1)"
+        labelCompleted.textAlignment = .center
+        labelCompleted.textColor = .yellow
+        
+        containerView.addSubview(labelCompleted)
         containerView.layer.addSublayer(subShapeLayer)
         containerView.layer.addSublayer(shapeLayer)
+
     }
     
   
@@ -92,6 +106,7 @@ class ProfileViewController: UIViewController {
         )
         navigationController?.navigationBar.tintColor = .systemGreen
         navigationController?.navigationBar.topItem?.title = "Profile"
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

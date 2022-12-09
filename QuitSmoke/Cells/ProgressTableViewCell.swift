@@ -18,9 +18,20 @@ class ProgressTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.systemGray.cgColor
-        layer.cornerRadius = 15
+        contentView.layer.borderWidth = 2
+        contentView.layer.borderColor = UIColor.systemGray.cgColor
+        contentView.layer.cornerRadius = 15
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOpacity = 1
+        contentView.layer.shadowOffset = .zero
+        contentView.layer.shadowRadius = 5
+
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        
     }
 
 }

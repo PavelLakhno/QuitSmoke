@@ -26,12 +26,22 @@ class AdviceTableViewCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
         backgroundColor = .darkGray
+        
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOpacity = 1
+        contentView.layer.shadowOffset = .zero
+        contentView.layer.shadowRadius = 5
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         headerView.isHidden = selected && headerView.isHidden ? false : true
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        //contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     }
     
 
