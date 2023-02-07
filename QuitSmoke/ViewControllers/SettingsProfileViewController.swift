@@ -74,11 +74,12 @@ class SettingsProfileViewController: UIViewController {
     }
     
     @IBAction func didTappedAction() {
-        saveDataForUser()
+        //saveDataForUser()
         delegate.setupSettingsTo(user: user)
         dismiss(animated: true)
     }
     
+    /*
     private func saveDataForUser() {
         user.person.priceBoxCigaretts = Int(priceCiggaretsTextField.text ?? "") ?? 0
         user.person.timeForSmoke = Int(timeForSmokeLabel.text ?? "") ?? 0
@@ -86,7 +87,7 @@ class SettingsProfileViewController: UIViewController {
         user.person.amountCigarettsDay = Int(cigaInDay.value)
         user.person.dateQuitSmoke = datePicker.date
     }
-
+*/
     private func loadDataUser(user: User) {
         priceCiggaretsTextField.text = "\(user.person.priceBoxCigaretts)"
         timeForSmokeSlider.value = Float(user.person.timeForSmoke)

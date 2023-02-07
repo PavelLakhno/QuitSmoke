@@ -93,9 +93,7 @@ class ProfileViewController: UIViewController {
         containerView.layer.addSublayer(shapeLayer)
 
     }
-    
-  
-   
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
@@ -189,7 +187,6 @@ class ProfileViewController: UIViewController {
     }
    
 }
-
 
 extension ProfileViewController : SettingsViewControllerDelegate {
     func setupSettingsTo(user: User) {

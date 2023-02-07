@@ -15,7 +15,7 @@ class ProgressViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.separatorStyle = .none
     }
     
     override func viewWillAppear(_ animated: Bool) {

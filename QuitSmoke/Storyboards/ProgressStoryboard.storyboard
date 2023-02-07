@@ -14,7 +14,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="PEJ-i3-HuP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="progress" rowHeight="170" id="QZg-cY-Hnn" customClass="ProgressTableViewCell" customModule="QuitSmoke" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="170"/>
@@ -23,7 +23,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="nhC-6q-VfS">
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nhC-6q-VfS">
                                             <rect key="frame" x="20" y="11" width="374" height="148"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="urh-fB-txh">
@@ -72,6 +72,7 @@
                                             </constraints>
                                         </stackView>
                                     </subviews>
+                                    <color key="backgroundColor" systemColor="systemGrayColor"/>
                                     <constraints>
                                         <constraint firstItem="nhC-6q-VfS" firstAttribute="trailing" secondItem="4aX-L0-1DU" secondAttribute="trailingMargin" id="9dC-Cy-4Zw"/>
                                         <constraint firstItem="nhC-6q-VfS" firstAttribute="leading" secondItem="4aX-L0-1DU" secondAttribute="leadingMargin" id="V3S-nc-FmU"/>
@@ -79,7 +80,7 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="nhC-6q-VfS" secondAttribute="bottom" id="vTL-x4-GwU"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="IGY-17-IdF" id="FSS-u0-Fz6"/>
                                     <outlet property="iconImageView" destination="IGe-9g-NL7" id="xKr-1I-t4M"/>
@@ -104,6 +105,9 @@
     </scenes>
     <resources>
         <image name="lasso" catalog="system" width="128" height="118"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

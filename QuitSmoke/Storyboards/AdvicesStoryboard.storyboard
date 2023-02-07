@@ -64,7 +64,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwK-Fi-e83">
-                                                            <rect key="frame" x="362.5" y="10" width="41.5" height="50"/>
+                                                            <rect key="frame" x="362.5" y="25" width="41.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,9 +73,8 @@
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="70" id="9yg-uC-9oJ"/>
-                                                        <constraint firstAttribute="bottom" secondItem="UwK-Fi-e83" secondAttribute="bottom" constant="10" id="AyY-aD-2d0"/>
-                                                        <constraint firstAttribute="trailing" secondItem="UwK-Fi-e83" secondAttribute="trailing" constant="10" id="mqM-xO-X0G"/>
-                                                        <constraint firstItem="UwK-Fi-e83" firstAttribute="top" secondItem="bOW-lJ-ibd" secondAttribute="top" constant="10" id="tRp-dj-VL5"/>
+                                                        <constraint firstItem="UwK-Fi-e83" firstAttribute="top" secondItem="bOW-lJ-ibd" secondAttribute="top" constant="25" id="bVJ-5q-YYz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="UwK-Fi-e83" secondAttribute="trailing" constant="10" id="pYt-gC-WsH"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aak-C6-peO">
@@ -94,7 +93,6 @@
                                                         <constraint firstItem="NBL-FM-MRw" firstAttribute="top" secondItem="Aak-C6-peO" secondAttribute="top" constant="8" id="Syi-cL-8xS"/>
                                                         <constraint firstItem="NBL-FM-MRw" firstAttribute="leading" secondItem="Aak-C6-peO" secondAttribute="leading" constant="8" id="dVr-vO-9X4"/>
                                                         <constraint firstAttribute="bottom" secondItem="NBL-FM-MRw" secondAttribute="bottom" constant="8" id="dfU-gU-glA"/>
-                                                        <constraint firstAttribute="height" constant="229" id="uBb-tr-obO"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
