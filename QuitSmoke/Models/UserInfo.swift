@@ -11,7 +11,7 @@ struct User {
     let logIn: String
     let password: String
     var person: Person
-    
+    /*
     static func getUserInfo() -> User {
         User(
             logIn: "User",
@@ -19,16 +19,16 @@ struct User {
              person: .getPersonInfo()
         )
     }
+     */
 }
 
 class Person {
-
     
-    let priceBoxCigaretts: Int
-    let amountCigarettsDay: Int
-    let amountCigarettsBox: Int
-    let timeForSmoke: Int
-    let dateQuitSmoke: Date
+    var priceBoxCigaretts: Int
+    var amountCigarettsDay: Int
+    var amountCigarettsBox: Int
+    var timeForSmoke: Int
+    var dateQuitSmoke: Date
     
     init(priceBoxCigaretts: Int, amountCigarettsDay: Int, amountCigarettsBox: Int, timeForSmoke: Int, dateQuitSmoke: Date ) {
         self.priceBoxCigaretts = priceBoxCigaretts
@@ -37,7 +37,7 @@ class Person {
         self.timeForSmoke = timeForSmoke
         self.dateQuitSmoke = dateQuitSmoke
     }
-    
+    /*
     static func getPersonInfo() -> Person {
 
         Person(
@@ -61,5 +61,5 @@ class Person {
 
         return Calendar.current.date(from: component) ?? Date()
     }
-
+     */
 }

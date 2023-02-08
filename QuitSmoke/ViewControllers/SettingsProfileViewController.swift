@@ -21,10 +21,8 @@ class SettingsProfileViewController: UIViewController {
     
     var datePicker: UIDatePicker!
     let toolbar = UIToolbar()
-    let priceList = Array(1...500)
     
     var user: User!
-    var delegate: SettingsViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +50,6 @@ class SettingsProfileViewController: UIViewController {
         toolbar.sizeToFit()
         toolbar.items = [doneButton]
         toolbar.tintColor = .systemGreen
-        
     }
     
     @objc func doneButtonPressed(sender: Any) {
@@ -70,16 +67,13 @@ class SettingsProfileViewController: UIViewController {
         } else if let slider = sender as? UISlider {
             timeForSmokeLabel.text = "\(Int(slider.value))"
         }
-
     }
     
     @IBAction func didTappedAction() {
-        //saveDataForUser()
-        delegate.setupSettingsTo(user: user)
+        saveDataForUser()
         dismiss(animated: true)
     }
-    
-    /*
+        
     private func saveDataForUser() {
         user.person.priceBoxCigaretts = Int(priceCiggaretsTextField.text ?? "") ?? 0
         user.person.timeForSmoke = Int(timeForSmokeLabel.text ?? "") ?? 0
@@ -87,7 +81,7 @@ class SettingsProfileViewController: UIViewController {
         user.person.amountCigarettsDay = Int(cigaInDay.value)
         user.person.dateQuitSmoke = datePicker.date
     }
-*/
+
     private func loadDataUser(user: User) {
         priceCiggaretsTextField.text = "\(user.person.priceBoxCigaretts)"
         timeForSmokeSlider.value = Float(user.person.timeForSmoke)
@@ -101,9 +95,7 @@ class SettingsProfileViewController: UIViewController {
         cigsInDayLabel.text = "\(user.person.amountCigarettsDay)"
         timeForSmokeLabel.text = "\(user.person.timeForSmoke)"
     }
-    
 }
-
 
 extension SettingsProfileViewController {
     
@@ -132,10 +124,8 @@ extension SettingsProfileViewController {
     private func formatDate(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMMM yyyy"
-        
         return formatter.string(from: date)
     }
-   
 }
 
 

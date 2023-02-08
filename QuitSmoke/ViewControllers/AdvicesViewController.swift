@@ -26,8 +26,7 @@ class AdvicesViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.topItem?.title = "21 days"
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
-        
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = nil        
     }
 
     // MARK: - TableViewDataSource

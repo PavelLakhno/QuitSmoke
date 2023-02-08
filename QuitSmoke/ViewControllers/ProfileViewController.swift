@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol SettingsViewControllerDelegate {
-    func setupSettingsTo(user: User)
-}
-
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var economyTime: UILabel!
@@ -110,7 +106,7 @@ class ProfileViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let settingsVC = segue.destination as? SettingsProfileViewController {
             settingsVC.user = user
-            settingsVC.delegate = self
+            //settingsVC.delegate = self
         }
     }
     
@@ -188,9 +184,3 @@ class ProfileViewController: UIViewController {
    
 }
 
-extension ProfileViewController : SettingsViewControllerDelegate {
-    func setupSettingsTo(user: User) {
-        self.user = user
-        count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
-    }
-}
