@@ -24,11 +24,11 @@ struct User {
 
 class Person {
     
-    var priceBoxCigaretts: Int
-    var amountCigarettsDay: Int
-    var amountCigarettsBox: Int
-    var timeForSmoke: Int
-    var dateQuitSmoke: Date
+    var priceBoxCigaretts: Int!
+    var amountCigarettsDay: Int!
+    var amountCigarettsBox: Int!
+    var timeForSmoke: Int!
+    var dateQuitSmoke: Date!
     
     init(priceBoxCigaretts: Int, amountCigarettsDay: Int, amountCigarettsBox: Int, timeForSmoke: Int, dateQuitSmoke: Date ) {
         self.priceBoxCigaretts = priceBoxCigaretts

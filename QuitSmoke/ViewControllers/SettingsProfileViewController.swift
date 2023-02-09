@@ -29,11 +29,11 @@ class SettingsProfileViewController: UIViewController {
 
         cigaInDay.setDecrementImage(cigaInDay.decrementImage(for: .normal), for: .normal)
         cigaInDay.setIncrementImage(cigaInDay.incrementImage(for: .normal), for: .normal)
-        cigaInDay.tintColor = .systemGreen
+        cigaInDay.tintColor = .systemOrange
         
         cigsOfBox.setDecrementImage(cigsOfBox.decrementImage(for: .normal), for: .normal)
         cigsOfBox.setIncrementImage(cigsOfBox.incrementImage(for: .normal), for: .normal)
-        cigsOfBox.tintColor = .systemGreen
+        cigsOfBox.tintColor = .systemOrange
 
         datePicker = createDatePicker()
         dateTextFeild.inputView = datePicker
