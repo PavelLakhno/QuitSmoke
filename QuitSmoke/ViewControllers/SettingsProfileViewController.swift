@@ -75,25 +75,25 @@ class SettingsProfileViewController: UIViewController {
     }
         
     private func saveDataForUser() {
-        user.person.priceBoxCigaretts = Int(priceCiggaretsTextField.text ?? "") ?? 0
-        user.person.timeForSmoke = Int(timeForSmokeLabel.text ?? "") ?? 0
-        user.person.amountCigarettsBox = Int(cigsOfBox.value)
-        user.person.amountCigarettsDay = Int(cigaInDay.value)
-        user.person.dateQuitSmoke = datePicker.date
+        user.priceBoxCigaretts = Int(priceCiggaretsTextField.text ?? "") ?? 0
+        user.timeForSmoke = Int(timeForSmokeLabel.text ?? "") ?? 0
+        user.amountCigarettsBox = Int(cigsOfBox.value)
+        user.amountCigarettsDay = Int(cigaInDay.value)
+        user.dateQuitSmoke = datePicker.date
     }
 
     private func loadDataUser(user: User) {
-        priceCiggaretsTextField.text = "\(user.person.priceBoxCigaretts)"
-        timeForSmokeSlider.value = Float(user.person.timeForSmoke)
-        cigsOfBox.value = Double(user.person.amountCigarettsBox)
-        cigaInDay.value = Double(user.person.amountCigarettsDay)
+        priceCiggaretsTextField.text = "\(user.priceBoxCigaretts)"
+        timeForSmokeSlider.value = Float(user.timeForSmoke)
+        cigsOfBox.value = Double(user.amountCigarettsBox)
+        cigaInDay.value = Double(user.amountCigarettsDay)
     }
     
     private func setupCorrectLabels() {
-        dateTextFeild.text = formatDate(date: user.person.dateQuitSmoke)
-        cigsInBoxLabel.text = "\(user.person.amountCigarettsBox)"
-        cigsInDayLabel.text = "\(user.person.amountCigarettsDay)"
-        timeForSmokeLabel.text = "\(user.person.timeForSmoke)"
+        dateTextFeild.text = formatDate(date: user.dateQuitSmoke)
+        cigsInBoxLabel.text = "\(user.amountCigarettsBox)"
+        cigsInDayLabel.text = "\(user.amountCigarettsDay)"
+        timeForSmokeLabel.text = "\(user.timeForSmoke)"
     }
 }
 
@@ -116,7 +116,7 @@ extension SettingsProfileViewController {
         datePicker.backgroundColor = .darkGray
         datePicker.overrideUserInterfaceStyle = .dark
         datePicker.locale = Locale(identifier: "ru_RU")
-        datePicker.date = user.person.dateQuitSmoke
+        datePicker.date = user.dateQuitSmoke
         datePicker.maximumDate = Date()
         return datePicker
     }

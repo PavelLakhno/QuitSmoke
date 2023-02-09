@@ -10,39 +10,39 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let defaults = UserDefaults.standard
+        if let _ = defaults.value(forKey: "UserData") {
+            if let navigationVC = mainStoryboard.instantiateViewController(withIdentifier: "navController") as? UINavigationController {
+                window?.rootViewController = navigationVC
+                window?.makeKeyAndVisible()
+            }
+        } else {
+            if let greetingVC = mainStoryboard.instantiateViewController(withIdentifier: "greetingVC") as? UIViewController {
+                window?.rootViewController = greetingVC
+                window?.makeKeyAndVisible()
+            }
+        }
         /*
+        struct JobCategory: Codable {
+            let id: Int
+            let name: String
+        }
 
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // To store in UserDefaults
+        if let encoded = try? JSONEncoder().encode(category) {
+            UserDefaults.standard.set(encoded, forKey: UserDefaultsKeys.jobCategory.rawValue)
+        }
 
-        let defaults = NSUserDefaults.standardUserDefaults()
-                if let launchview = defaults.stringForKey("LaunchView")
-                {
-
-                    if launchview == "ViewController1" {
-
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let yourVC = mainStoryboard.instantiateViewControllerWithIdentifier("VC1") as! ViewController1
-                appDelegate.window?.rootViewController = yourVC
-                appDelegate.window?.makeKeyAndVisible()
-
-                    } else if launchview == "ViewController2" {
-                        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                        appDelegate.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-                        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let yourVC = mainStoryboard.instantiateViewControllerWithIdentifier("VC1") as! ViewController1
-                        appDelegate.window?.rootViewController = yourVC
-                        appDelegate.window?.makeKeyAndVisible()
-                    }
-
-                }
-
-                return true
-           }
+        // Retrieve from UserDefaults
+        if let data = UserDefaults.standard.object(forKey: UserDefaultsKeys.jobCategory.rawValue) as? Data,
+           let category = try? JSONDecoder().decode(JobCategory.self, from: data) {
+             print(category.name)
+        }
          */
         return true
     }
@@ -50,15 +50,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
+
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
 

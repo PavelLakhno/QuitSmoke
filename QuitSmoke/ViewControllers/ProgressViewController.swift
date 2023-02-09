@@ -41,7 +41,7 @@ extension ProgressViewController {
             for: indexPath
         ) as! ProgressTableViewCell
         
-        let progressTime = Float(getTimeIntervalFrom(date: user.person.dateQuitSmoke)) / Float(achievements[indexPath.row].time)
+        let progressTime = Float(getTimeIntervalFrom(date: user.dateQuitSmoke)) / Float(achievements[indexPath.row].time)
         print(progressTime)
 
         cell.timeLabel.text = achievements[indexPath.row].timeTitle

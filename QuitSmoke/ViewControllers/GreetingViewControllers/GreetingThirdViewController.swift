@@ -39,6 +39,23 @@ class GreetingThirdViewController: UIViewController {
         view.endEditing(true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let navigationVC = segue.destination as? UINavigationController {
+            if let tabBarController = navigationVC.topViewController as? UITabBarController {
+                guard let viewControllers = tabBarController.viewControllers else { return }
+                for viewController in viewControllers {
+                    if let profileVC = viewController as? ProfileViewController {
+                        profileVC.user = user
+                    } else if let progressVC = viewController as? ProgressViewController {
+                        progressVC.user = user
+                    } else if let adviceVC = viewController as? AdvicesViewController {
+                        adviceVC.user = user
+                    }
+                }
+            }
+        }
+    }
+    
     @IBAction func didTappedStepper(_ sender: Any) {
         
         if let stepper = sender as? UIStepper {
@@ -55,17 +72,21 @@ class GreetingThirdViewController: UIViewController {
     @IBAction func didTappedAction() {
         saveDataForUser()
         print(user)
-        dismiss(animated: true)
     }
         
     private func saveDataForUser() {
-        user = User.init(logIn: "User", password: "Password", person: Person.init(
+        user = User.init(
             priceBoxCigaretts: Int(priceCiggaretsTextField.text ?? "") ?? 0,
             amountCigarettsDay: Int(cigaInDay.value),
             amountCigarettsBox: Int(cigsOfBox.value),
             timeForSmoke: Int(timeForSmokeLabel.text ?? "") ?? 0,
             dateQuitSmoke: date
-        ))
+        )
+        
+        if let encoded = try? JSONEncoder().encode(user) {
+            UserDefaults.standard.set(encoded, forKey: "UserData")
+        }
+
     }
     
 }

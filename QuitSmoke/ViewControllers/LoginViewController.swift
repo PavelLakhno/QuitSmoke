@@ -12,14 +12,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-
-    private let user = User.init(logIn: "User", password: "Password", person: Person.init(
+    
+    private let user = User.init(
         priceBoxCigaretts: 10,
         amountCigarettsDay: 10,
         amountCigarettsBox: 10,
         timeForSmoke: 10,
         dateQuitSmoke: Date()
-    ))
+    )
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-
+/*
     @IBAction func logInPressed() {
         guard userNameTextField.text == user.logIn, passwordTextField.text == user.password else {
             showAlert(
@@ -67,6 +67,7 @@ class LoginViewController: UIViewController {
         userNameTextField.text = ""
         passwordTextField.text = ""
     }
+ */
 }
 
 // MARK: - UIAlertController

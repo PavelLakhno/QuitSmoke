@@ -14,7 +14,7 @@ class AdvicesViewController: UITableViewController {
     private let smokeFacts = Progress.getFacts()
     
     private var progressTime: Float {
-        Float(getTimeIntervalFrom(date: user.person.dateQuitSmoke))
+        Float(getTimeIntervalFrom(date: user.dateQuitSmoke))
     }
     
     override func viewDidLoad() {
