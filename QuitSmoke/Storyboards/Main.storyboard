@@ -469,7 +469,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="9Na-F9-VrX" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="Uk1-mZ-leH"/>
+                                    <segue destination="9Na-F9-VrX" kind="presentation" modalPresentationStyle="fullScreen" id="Uk1-mZ-leH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="18" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipj-mv-fba">
@@ -493,12 +493,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jNa-B2-MBf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-319.19999999999999" y="-225.36945812807883"/>
+            <point key="canvasLocation" x="-319" y="-275"/>
         </scene>
         <!--Greeting Second View Controller-->
         <scene sceneID="H8l-c0-dUg">
             <objects>
-                <viewController id="9Na-F9-VrX" customClass="GreetingSecondViewController" customModule="QuitSmoke" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="greetingSecondVC" id="9Na-F9-VrX" customClass="GreetingSecondViewController" customModule="QuitSmoke" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mcf-Bk-8N9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -565,7 +565,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJx-0K-69p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="545" y="-225"/>
+            <point key="canvasLocation" x="545" y="-275"/>
         </scene>
         <!--Greeting Third View Controller-->
         <scene sceneID="DSg-1p-rQw">
@@ -773,7 +773,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLS-fy-yln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1416.8" y="-225.36945812807883"/>
+            <point key="canvasLocation" x="1417" y="-275"/>
         </scene>
     </scenes>
     <resources>

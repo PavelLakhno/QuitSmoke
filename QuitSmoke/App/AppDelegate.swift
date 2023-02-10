@@ -10,23 +10,11 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let defaults = UserDefaults.standard
-        if let _ = defaults.value(forKey: "UserData") {
-            if let navigationVC = mainStoryboard.instantiateViewController(withIdentifier: "navController") as? UINavigationController {
-                window?.rootViewController = navigationVC
-                window?.makeKeyAndVisible()
-            }
-        } else {
-            if let greetingVC = mainStoryboard.instantiateViewController(withIdentifier: "greetingVC") as? UIViewController {
-                window?.rootViewController = greetingVC
-                window?.makeKeyAndVisible()
-            }
-        }
+
         /*
         struct JobCategory: Codable {
             let id: Int

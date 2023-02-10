@@ -32,11 +32,11 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
+        
         if let data = UserDefaults.standard.object(forKey: "UserData") as? Data {
-            self.user = try? JSONDecoder().decode(User.self, from: data) else { return }
+            self.user = try? JSONDecoder().decode(User.self, from: data) //else { return }
         }
-         */
+        
         startStopTimer(timerCounting)
         count = getTimeIntervalFrom(date: user.dateQuitSmoke)
         

@@ -21,7 +21,6 @@
 		CEA07D79299502B100379531 /* GreetingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA07D78299502B100379531 /* GreetingSecondViewController.swift */; };
 		CEA07D7B2995032F00379531 /* GreetingThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA07D7A2995032F00379531 /* GreetingThirdViewController.swift */; };
 		CEC3FE5F293A2EDD001C87B8 /* SettingsProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3FE5E293A2EDD001C87B8 /* SettingsProfileViewController.swift */; };
-		E9133F18290BC1530010530E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9133F17290BC1530010530E /* LoginViewController.swift */; };
 		E9133F1A290BC52A0010530E /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9133F19290BC52A0010530E /* ProgressViewController.swift */; };
 		E9133F1C290BC5830010530E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9133F1B290BC5830010530E /* ProfileViewController.swift */; };
 		E961E8CA29094A4200FE1BD9 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961E8C529094A4200FE1BD9 /* UserInfo.swift */; };
@@ -45,7 +44,6 @@
 		CEA07D78299502B100379531 /* GreetingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingSecondViewController.swift; sourceTree = "<group>"; };
 		CEA07D7A2995032F00379531 /* GreetingThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingThirdViewController.swift; sourceTree = "<group>"; };
 		CEC3FE5E293A2EDD001C87B8 /* SettingsProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewController.swift; sourceTree = "<group>"; };
-		E9133F17290BC1530010530E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E9133F19290BC52A0010530E /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		E9133F1B290BC5830010530E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E961E8C529094A4200FE1BD9 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				CEA07D7C2995034500379531 /* GreetingViewControllers */,
-				E9133F17290BC1530010530E /* LoginViewController.swift */,
 				E9133F1B290BC5830010530E /* ProfileViewController.swift */,
 				E9133F19290BC52A0010530E /* ProgressViewController.swift */,
 				0B50DB50290D69220084FDB9 /* AdvicesViewController.swift */,
@@ -235,7 +232,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9133F18290BC1530010530E /* LoginViewController.swift in Sources */,
 				0B330515290C84B10068C25D /* ProgressTableViewCell.swift in Sources */,
 				0B569FAD29086B5D00F3C53A /* AppDelegate.swift in Sources */,
 				0B50DB4F290D1C3E0084FDB9 /* DataStore.swift in Sources */,
