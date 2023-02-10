@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, SettingsProfileViewControllerDelegate {
     
     @IBOutlet weak var economyTime: UILabel!
     @IBOutlet weak var economyMoney: UILabel!
@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var containerView: UIStackView!
     
     var user: User!
+    var delegate: SettingsProfileViewControllerDelegate!
     
     var timer = Timer()
     var count = 0
@@ -33,10 +34,11 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         
-        if let data = UserDefaults.standard.object(forKey: "UserData") as? Data {
-            self.user = try? JSONDecoder().decode(User.self, from: data) //else { return }
-        }
         
+        if let data = UserDefaults.standard.object(forKey: "UserData") as? Data {
+            self.user = try! JSONDecoder().decode(User.self, from: data) //else { return }
+        }
+
         startStopTimer(timerCounting)
         count = getTimeIntervalFrom(date: user.dateQuitSmoke)
         
@@ -52,6 +54,11 @@ class ProfileViewController: UIViewController {
         setLayerFor(subView: progressView, completedCounter: (total, totalProgress.count))
 
     }
+    
+    func reloadData() {
+        loadView()
+    }
+    
     
     private func setLayerFor(subView: UIView, completedCounter: (Int, Int)) {
         
@@ -105,7 +112,9 @@ class ProfileViewController: UIViewController {
         )
         navigationController?.navigationBar.tintColor = .systemGreen
         navigationController?.navigationBar.topItem?.title = "Profile"
-
+        if let data = UserDefaults.standard.object(forKey: "UserData") as? Data {
+            self.user = try! JSONDecoder().decode(User.self, from: data) //else { return }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

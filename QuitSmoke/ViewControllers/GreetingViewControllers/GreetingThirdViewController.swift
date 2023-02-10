@@ -71,7 +71,7 @@ class GreetingThirdViewController: UIViewController {
     
     @IBAction func didTappedAction() {
         saveDataForUser()
-        print(user)
+        //dismiss(animated: true)
     }
         
     private func saveDataForUser() {

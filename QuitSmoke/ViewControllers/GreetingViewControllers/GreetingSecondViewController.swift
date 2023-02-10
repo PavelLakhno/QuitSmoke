@@ -10,6 +10,11 @@ import UIKit
 class GreetingSecondViewController: UIViewController {
     
     @IBOutlet weak var dateTextFeild: UITextField!
+    @IBOutlet weak var nextButton: UIButton! {
+        didSet {
+            nextButton.isEnabled = false
+        }
+    }
     
     let toolbar = UIToolbar()
     var datePicker: UIDatePicker!
@@ -38,6 +43,7 @@ class GreetingSecondViewController: UIViewController {
 extension GreetingSecondViewController {
     
     @objc func doneButtonPressed(sender: Any) {
+        nextButton.isEnabled = true
         view.endEditing(true)
     }
     

@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol SettingsProfileViewControllerDelegate {
+    func reloadData()
+}
+
 class SettingsProfileViewController: UIViewController {
+    
     
     @IBOutlet weak var dateTextFeild: UITextField!
     @IBOutlet weak var priceCiggaretsTextField: UITextField!
@@ -50,6 +55,7 @@ class SettingsProfileViewController: UIViewController {
         toolbar.sizeToFit()
         toolbar.items = [doneButton]
         toolbar.tintColor = .systemGreen
+        
     }
     
     @objc func doneButtonPressed(sender: Any) {
@@ -71,19 +77,34 @@ class SettingsProfileViewController: UIViewController {
     
     @IBAction func didTappedAction() {
         saveDataForUser()
-        dismiss(animated: true)
+        print("pressed button")
+        navigationController?.popViewController(animated: true)
     }
+    
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let profileVC = segue.destination as? ProfileViewController {
+            profileVC.delegate = self
+        }
+    }*/
         
     private func saveDataForUser() {
-        user.priceBoxCigaretts = Int(priceCiggaretsTextField.text ?? "") ?? 0
-        user.timeForSmoke = Int(timeForSmokeLabel.text ?? "") ?? 0
-        user.amountCigarettsBox = Int(cigsOfBox.value)
-        user.amountCigarettsDay = Int(cigaInDay.value)
-        user.dateQuitSmoke = datePicker.date
+        user = User.init(
+            priceBoxCigaretts: Int(priceCiggaretsTextField.text ?? "") ?? 0,
+            amountCigarettsDay: Int(cigaInDay.value),
+            amountCigarettsBox: Int(cigsOfBox.value),
+            timeForSmoke: Int(timeForSmokeLabel.text ?? "") ?? 0,
+            dateQuitSmoke: datePicker.date
+        )
+        
+        if let encoded = try? JSONEncoder().encode(user) {
+            UserDefaults.standard.set(encoded, forKey: "UserData")
+        }
+
     }
 
     private func loadDataUser(user: User) {
-        priceCiggaretsTextField.text = "\(user.priceBoxCigaretts)"
+        priceCiggaretsTextField.text = String(describing: user.priceBoxCigaretts)
         timeForSmokeSlider.value = Float(user.timeForSmoke)
         cigsOfBox.value = Double(user.amountCigarettsBox)
         cigaInDay.value = Double(user.amountCigarettsDay)
@@ -91,9 +112,9 @@ class SettingsProfileViewController: UIViewController {
     
     private func setupCorrectLabels() {
         dateTextFeild.text = formatDate(date: user.dateQuitSmoke)
-        cigsInBoxLabel.text = "\(user.amountCigarettsBox)"
-        cigsInDayLabel.text = "\(user.amountCigarettsDay)"
-        timeForSmokeLabel.text = "\(user.timeForSmoke)"
+        cigsInBoxLabel.text = String(describing: user.amountCigarettsBox)
+        cigsInDayLabel.text = String(describing: user.amountCigarettsDay)
+        timeForSmokeLabel.text = String(describing: user.timeForSmoke)
     }
 }
 

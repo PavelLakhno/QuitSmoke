@@ -469,7 +469,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="9Na-F9-VrX" kind="presentation" modalPresentationStyle="fullScreen" id="Uk1-mZ-leH"/>
+                                    <segue destination="9Na-F9-VrX" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="Uk1-mZ-leH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="18" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipj-mv-fba">
@@ -561,6 +561,7 @@
                     <navigationItem key="navigationItem" id="TbI-3M-DK6"/>
                     <connections>
                         <outlet property="dateTextFeild" destination="fzX-Gz-HUO" id="5hy-2z-ECb"/>
+                        <outlet property="nextButton" destination="cgY-iB-fXE" id="aqX-ib-st3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJx-0K-69p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

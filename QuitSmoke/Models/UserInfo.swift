@@ -7,35 +7,11 @@
 
 import Foundation
 
-//struct User {
-//    let logIn: String
-//    let password: String
-//    var person: Person
-//    /*
-//    static func getUserInfo() -> User {
-//        User(
-//            logIn: "User",
-//             password: "Password",
-//             person: .getPersonInfo()
-//        )
-//    }
-//     */
-//}
-
-class User: Codable {
+struct User: Codable {
     
-    var priceBoxCigaretts: Int!
-    var amountCigarettsDay: Int!
-    var amountCigarettsBox: Int!
-    var timeForSmoke: Int!
-    var dateQuitSmoke: Date!
-    
-    init(priceBoxCigaretts: Int, amountCigarettsDay: Int, amountCigarettsBox: Int, timeForSmoke: Int, dateQuitSmoke: Date ) {
-        self.priceBoxCigaretts = priceBoxCigaretts
-        self.amountCigarettsDay = amountCigarettsDay
-        self.amountCigarettsBox = amountCigarettsBox
-        self.timeForSmoke = timeForSmoke
-        self.dateQuitSmoke = dateQuitSmoke
-    }
-
+    var priceBoxCigaretts: Int
+    var amountCigarettsDay: Int
+    var amountCigarettsBox: Int
+    var timeForSmoke: Int
+    var dateQuitSmoke: Date
 }
