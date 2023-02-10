@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol SettingsViewControllerDelegate {
-    func setupSettingsTo(user: User)
-}
-
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var economyTime: UILabel!
@@ -35,9 +31,14 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        if let data = UserDefaults.standard.object(forKey: "UserData") as? Data {
+            self.user = try? JSONDecoder().decode(User.self, from: data) //else { return }
+        }
+        
         startStopTimer(timerCounting)
-        count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
+        count = getTimeIntervalFrom(date: user.dateQuitSmoke)
         
         let days = count / 86400
         var total = 0
@@ -93,9 +94,7 @@ class ProfileViewController: UIViewController {
         containerView.layer.addSublayer(shapeLayer)
 
     }
-    
-  
-   
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
@@ -112,7 +111,7 @@ class ProfileViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let settingsVC = segue.destination as? SettingsProfileViewController {
             settingsVC.user = user
-            settingsVC.delegate = self
+            //settingsVC.delegate = self
         }
     }
     
@@ -174,26 +173,19 @@ class ProfileViewController: UIViewController {
     
     private func getEconomyTime() -> String {
         
-        return "\((count) / (user.person.timeForSmoke * 60) / 60) мин"
+        return "\((count) / (user.timeForSmoke * 60) / 60) мин"
     }
 
     private func getEconomyMoney() -> String {
-        let priceOneCigar = user.person.priceBoxCigaretts / user.person.amountCigarettsBox
-        let spendMoneyOneDay = priceOneCigar * user.person.amountCigarettsDay
+        let priceOneCigar = user.priceBoxCigaretts / user.amountCigarettsBox
+        let spendMoneyOneDay = priceOneCigar * user.amountCigarettsDay
         let totalEconomyMoney = "\(count / 86400 * spendMoneyOneDay) руб"
         return totalEconomyMoney
     }
     
     private func getCountNoSmokeCig() -> String{
-        "\(count / 86400 * user.person.amountCigarettsDay) шт"
+        "\(count / 86400 * user.amountCigarettsDay) шт"
     }
    
 }
 
-
-extension ProfileViewController : SettingsViewControllerDelegate {
-    func setupSettingsTo(user: User) {
-        self.user = user
-        count = getTimeIntervalFrom(date: user.person.dateQuitSmoke)
-    }
-}

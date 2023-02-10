@@ -7,51 +7,35 @@
 
 import Foundation
 
-struct User {
-    let logIn: String
-    let password: String
-    var person: Person
+//struct User {
+//    let logIn: String
+//    let password: String
+//    var person: Person
+//    /*
+//    static func getUserInfo() -> User {
+//        User(
+//            logIn: "User",
+//             password: "Password",
+//             person: .getPersonInfo()
+//        )
+//    }
+//     */
+//}
+
+class User: Codable {
     
-    static func getUserInfo() -> User {
-        User(
-            logIn: "User",
-             password: "Password",
-             person: .getPersonInfo()
-        )
-    }
-}
-
-struct Person {
-
+    var priceBoxCigaretts: Int!
+    var amountCigarettsDay: Int!
+    var amountCigarettsBox: Int!
+    var timeForSmoke: Int!
+    var dateQuitSmoke: Date!
     
-    var priceBoxCigaretts: Int
-    var amountCigarettsDay: Int
-    var amountCigarettsBox: Int
-    var timeForSmoke: Int
-    var dateQuitSmoke: Date
-    
-    static func getPersonInfo() -> Person {
-
-        Person(
-            priceBoxCigaretts: 150,
-            amountCigarettsDay: 15,
-            amountCigarettsBox: 20,
-            timeForSmoke: 4,
-            dateQuitSmoke: defaultSettings()
-        )
-
-    }
-    
-    static func defaultSettings() -> Date {
-        var component = DateComponents()
-        component.year = 2022
-        component.month = 11
-        component.day = 30
-        component.hour = 10
-        component.minute = 0
-        component.second = 0
-
-        return Calendar.current.date(from: component) ?? Date()
+    init(priceBoxCigaretts: Int, amountCigarettsDay: Int, amountCigarettsBox: Int, timeForSmoke: Int, dateQuitSmoke: Date ) {
+        self.priceBoxCigaretts = priceBoxCigaretts
+        self.amountCigarettsDay = amountCigarettsDay
+        self.amountCigarettsBox = amountCigarettsBox
+        self.timeForSmoke = timeForSmoke
+        self.dateQuitSmoke = dateQuitSmoke
     }
 
 }

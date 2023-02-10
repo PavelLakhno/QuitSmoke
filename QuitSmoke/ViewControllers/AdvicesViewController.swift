@@ -14,19 +14,19 @@ class AdvicesViewController: UITableViewController {
     private let smokeFacts = Progress.getFacts()
     
     private var progressTime: Float {
-        Float(getTimeIntervalFrom(date: user.person.dateQuitSmoke))
+        Float(getTimeIntervalFrom(date: user.dateQuitSmoke))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    }
+     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.topItem?.title = "21 days"
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = nil        
     }
 
     // MARK: - TableViewDataSource
@@ -49,6 +49,7 @@ class AdvicesViewController: UITableViewController {
         
         if cell.isUserInteractionEnabled {
             cell.isPassedDay.text = "☑︎"
+            cell.isPassedDay.textColor = .systemGreen
         } else {
             cell.isPassedDay.text = "☒"
             cell.isPassedDay.textColor = .gray
@@ -69,14 +70,19 @@ class AdvicesViewController: UITableViewController {
             cell.headerView.isHidden = true
         }
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
 
-    
     //MARK: Private Methods
-    
     private func getTimeIntervalFrom(date: Date) -> Int {
         Int(Date().timeIntervalSinceReferenceDate - date.timeIntervalSinceReferenceDate)
     }
 
 }
+
+
+
 
 

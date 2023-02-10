@@ -37,13 +37,14 @@ class AdviceTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         headerView.isHidden = selected && headerView.isHidden ? false : true
+        layoutIfNeeded()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        //contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        
+        //contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+        
     }
-    
-
 }
 
