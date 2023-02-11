@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, SettingsProfileViewControllerDelegate {
+class ProfileViewController: UIViewController {
     
     @IBOutlet weak var economyTime: UILabel!
     @IBOutlet weak var economyMoney: UILabel!
@@ -20,7 +20,6 @@ class ProfileViewController: UIViewController, SettingsProfileViewControllerDele
     @IBOutlet weak var containerView: UIStackView!
     
     var user: User!
-    var delegate: SettingsProfileViewControllerDelegate!
     
     var timer = Timer()
     var count = 0
@@ -32,9 +31,7 @@ class ProfileViewController: UIViewController, SettingsProfileViewControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+
         if let data = UserDefaults.standard.object(forKey: "UserData") as? Data {
             self.user = try! JSONDecoder().decode(User.self, from: data) //else { return }
         }
@@ -53,10 +50,6 @@ class ProfileViewController: UIViewController, SettingsProfileViewControllerDele
         setLayerFor(subView: adviceView, completedCounter: (days, daysProgress.count))
         setLayerFor(subView: progressView, completedCounter: (total, totalProgress.count))
 
-    }
-    
-    func reloadData() {
-        loadView()
     }
     
     
@@ -116,11 +109,12 @@ class ProfileViewController: UIViewController, SettingsProfileViewControllerDele
             self.user = try! JSONDecoder().decode(User.self, from: data) //else { return }
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let settingsVC = segue.destination as? SettingsProfileViewController {
-            settingsVC.user = user
-            //settingsVC.delegate = self
+        if segue.identifier  == "settingsVC" {
+            let settingVC = segue.destination as! SettingsViewController
+            settingVC.user = user
+            settingVC.delegate = self
         }
     }
     
@@ -154,7 +148,6 @@ class ProfileViewController: UIViewController, SettingsProfileViewControllerDele
     @objc func showSettingsVC() {
         performSegue(withIdentifier: "settingsVC", sender: nil)
     }
-    
     
     private func secondsToDaysHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int, Int) {
         let restSeconds = seconds % 86400
@@ -196,5 +189,14 @@ class ProfileViewController: UIViewController, SettingsProfileViewControllerDele
         "\(count / 86400 * user.amountCigarettsDay) шт"
     }
    
+}
+
+extension ProfileViewController: SettingsViewControllerDelegate {
+    func setNewValues(for user: User) {
+        self.user = user
+        count = getTimeIntervalFrom(date: user.dateQuitSmoke)
+    }
+    
+    
 }
 

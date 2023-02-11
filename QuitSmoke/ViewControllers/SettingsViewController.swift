@@ -1,5 +1,5 @@
 //
-//  SettingsProfileViewController.swift
+//  SettingsViewController.swift
 //  QuitSmoke
 //
 //  Created by user on 02.12.2022.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol SettingsProfileViewControllerDelegate {
-    func reloadData()
+protocol SettingsViewControllerDelegate {
+    func setNewValues(for user: User)
 }
 
-class SettingsProfileViewController: UIViewController {
+class SettingsViewController: UIViewController {
     
     
     @IBOutlet weak var dateTextFeild: UITextField!
@@ -26,7 +26,7 @@ class SettingsProfileViewController: UIViewController {
     
     var datePicker: UIDatePicker!
     let toolbar = UIToolbar()
-    
+    var delegate: SettingsViewControllerDelegate!
     var user: User!
     
     override func viewDidLoad() {
@@ -77,18 +77,18 @@ class SettingsProfileViewController: UIViewController {
     
     @IBAction func didTappedAction() {
         saveDataForUser()
+        print(user.dateQuitSmoke)
+        delegate.setNewValues(for: user)
         print("pressed button")
         navigationController?.popViewController(animated: true)
     }
-    
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let profileVC = segue.destination as? ProfileViewController {
-            profileVC.delegate = self
-        }
-    }*/
         
     private func saveDataForUser() {
+//        user.dateQuitSmoke = datePicker.date
+//        user.amountCigarettsDay = Int(cigaInDay.value)
+//        user.amountCigarettsBox = Int(cigsOfBox.value)
+//        user.priceBoxCigaretts = Int(priceCiggaretsTextField.text ?? "") ?? 0
+//        user.timeForSmoke = Int(timeForSmokeLabel.text ?? "") ?? 0
         user = User.init(
             priceBoxCigaretts: Int(priceCiggaretsTextField.text ?? "") ?? 0,
             amountCigarettsDay: Int(cigaInDay.value),
@@ -118,7 +118,7 @@ class SettingsProfileViewController: UIViewController {
     }
 }
 
-extension SettingsProfileViewController {
+extension SettingsViewController {
     
     @objc func dateChange(datePicker: UIDatePicker) {
         dateTextFeild.text = formatDate(date: datePicker.date)
