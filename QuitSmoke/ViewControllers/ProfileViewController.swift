@@ -15,8 +15,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
-    @IBOutlet weak var progressView: UIView!
-    @IBOutlet weak var adviceView: UIView!
+    @IBOutlet weak var progressView: CircleProgressBar!
+    @IBOutlet weak var adviceView: CircleProgressBar!
     @IBOutlet weak var containerView: UIStackView!
     
     var user: User!
@@ -25,16 +25,14 @@ class ProfileViewController: UIViewController {
     var count = 0
     var timerCounting = true
     
-    let daysProgress = Progress.getFacts()
-    let totalProgress = Progress.getProgressList()
+    private let daysProgress = Progress.getFacts()
+    private let totalProgress = Progress.getProgressList()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let data = UserDefaults.standard.object(forKey: "UserData") as? Data {
-            self.user = try! JSONDecoder().decode(User.self, from: data) //else { return }
-        }
+        user = getModelUserDefaults()
 
         startStopTimer(timerCounting)
         count = getTimeIntervalFrom(date: user.dateQuitSmoke)
@@ -47,12 +45,11 @@ class ProfileViewController: UIViewController {
             }
         }
         
-        setLayerFor(subView: adviceView, completedCounter: (days, daysProgress.count))
-        setLayerFor(subView: progressView, completedCounter: (total, totalProgress.count))
+        //setLayerFor(subView: adviceView, completedCounter: (days, daysProgress.count))
+        //setLayerFor(subView: progressView, completedCounter: (total, totalProgress.count))
 
     }
-    
-    
+ 
     private func setLayerFor(subView: UIView, completedCounter: (Int, Int)) {
         
         let subShapeLayer = CAShapeLayer()
@@ -105,9 +102,6 @@ class ProfileViewController: UIViewController {
         )
         navigationController?.navigationBar.tintColor = .systemGreen
         navigationController?.navigationBar.topItem?.title = "Profile"
-        if let data = UserDefaults.standard.object(forKey: "UserData") as? Data {
-            self.user = try! JSONDecoder().decode(User.self, from: data) //else { return }
-        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -118,7 +112,34 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    // MARK: Private Methods
+    @objc func showSettingsVC() {
+        performSegue(withIdentifier: "settingsVC", sender: nil)
+    }
+
+}
+
+// MARK: SettingsViewControllerDelegate
+extension ProfileViewController: SettingsViewControllerDelegate {
+    func setNewValues(for user: User) {
+        self.user = user
+        count = getTimeIntervalFrom(date: user.dateQuitSmoke)
+    }
+}
+
+// MARK: Help Methods
+extension ProfileViewController {
+    
+    private func getModelUserDefaults() -> User {
+        let user = User(priceBoxCigaretts: 0, amountCigarettsDay: 0, amountCigarettsBox: 0, timeForSmoke: 0, dateQuitSmoke: Date())
+        guard let data = UserDefaults.standard.object(forKey: "UserData") as? Data else {
+            return user
+        }
+        guard let userData = try? JSONDecoder().decode(User.self, from: data) else {
+            return user
+        }
+        return userData
+    }
+    
     private func startStopTimer(_ isValue: Bool) {
         if isValue {
             timer = Timer.scheduledTimer(
@@ -144,17 +165,12 @@ class ProfileViewController: UIViewController {
         economyMoney.text = getEconomyMoney()
         passCigaretts.text = getCountNoSmokeCig()
     }
-    
-    @objc func showSettingsVC() {
-        performSegue(withIdentifier: "settingsVC", sender: nil)
-    }
-    
+
     private func secondsToDaysHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int, Int) {
         let restSeconds = seconds % 86400
         return ((seconds / 86400), (restSeconds / 3600), ((restSeconds % 3600) / 60), ((restSeconds % 3600) % 60))
     }
-    
-    
+
     private func makeTimeString(hours: Int, minutes: Int, seconds : Int) -> String {
         var timeString = ""
         timeString += String(format: "%02d", hours)
@@ -188,15 +204,5 @@ class ProfileViewController: UIViewController {
     private func getCountNoSmokeCig() -> String{
         "\(count / 86400 * user.amountCigarettsDay) шт"
     }
-   
-}
-
-extension ProfileViewController: SettingsViewControllerDelegate {
-    func setNewValues(for user: User) {
-        self.user = user
-        count = getTimeIntervalFrom(date: user.dateQuitSmoke)
-    }
-    
-    
 }
 
