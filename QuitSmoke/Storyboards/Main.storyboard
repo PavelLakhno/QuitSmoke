@@ -96,16 +96,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Phe-LC-Tc3">
                                 <rect key="frame" x="47" y="633" width="320" height="150"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1h-n0-tY1">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1h-n0-tY1" customClass="CircleProgressBar" customModule="QuitSmoke" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="nXe-0e-gPd"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHb-28-cru">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHb-28-cru" customClass="CircleProgressBar" customModule="QuitSmoke" customModuleProvider="target">
                                         <rect key="frame" x="170" y="0.0" width="150" height="150"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="xk5-sp-SbK"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -129,20 +132,20 @@
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="adviceView" destination="mHb-28-cru" id="Zwq-C4-xZq"/>
-                        <outlet property="containerView" destination="Phe-LC-Tc3" id="9RB-TC-qgn"/>
+                        <outlet property="adviceView" destination="mHb-28-cru" id="X0i-Xl-wLj"/>
+                        <outlet property="containerView" destination="Phe-LC-Tc3" id="i8n-ys-vE9"/>
                         <outlet property="daysLabel" destination="ZLt-GP-wYO" id="xtQ-mb-OTD"/>
                         <outlet property="economyMoney" destination="ueJ-Tj-igM" id="dnb-e4-x84"/>
                         <outlet property="economyTime" destination="43w-xB-dZD" id="1xJ-EW-bhi"/>
                         <outlet property="passCigaretts" destination="7vT-Lr-YUY" id="Wsu-fa-5fa"/>
-                        <outlet property="progressView" destination="r1h-n0-tY1" id="RB4-hr-4AZ"/>
+                        <outlet property="progressBar" destination="r1h-n0-tY1" id="ILq-tG-e45"/>
                         <outlet property="timerLabel" destination="MvA-LD-eHn" id="il3-fJ-aks"/>
                         <segue destination="Exr-As-HmT" kind="show" identifier="settingsVC" id="Zx7-XK-cre"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvn-fQ-02v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="1294.5812807881773"/>
+            <point key="canvasLocation" x="618.84057971014499" y="1294.4196428571429"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Vs9-qV-QnS">

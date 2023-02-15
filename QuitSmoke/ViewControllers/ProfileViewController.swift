@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
-    @IBOutlet weak var progressView: CircleProgressBar!
+    @IBOutlet weak var progressBar: CircleProgressBar!
     @IBOutlet weak var adviceView: CircleProgressBar!
     @IBOutlet weak var containerView: UIStackView!
     
@@ -45,50 +45,64 @@ class ProfileViewController: UIViewController {
             }
         }
         
-        //setLayerFor(subView: adviceView, completedCounter: (days, daysProgress.count))
-        //setLayerFor(subView: progressView, completedCounter: (total, totalProgress.count))
+        //containerView.layer.addSublayer(progressBar.backgroundLayer)
+        //containerView.layer.addSublayer(adviceView.backgroundLayer)
+        
+        //setLayerFor(subViews: adviceView, container: containerView)
+        //setLayerFor(subViews: adviceView)
+        //setLayerFor(subView: adviceView, completedCounter: (days, daysProgress.count), container: containerView)
+        //setLayerFor(subView: progressBar, completedCounter: (total, totalProgress.count), container: containerView)
+
+    }
+    func setLayerFor(subViews: CircleProgressBar...) {
+        
+        for subView in subViews {
+            containerView.layer.addSublayer(subView.backgroundLayer)
+        }
 
     }
  
-    private func setLayerFor(subView: UIView, completedCounter: (Int, Int)) {
+    private func setLayerFor(subView: UIView, completedCounter: (Int, Int), container: UIStackView) {
         
-        let subShapeLayer = CAShapeLayer()
-        let shapeLayer = CAShapeLayer()
+        let backgroundLayer = CAShapeLayer()
+        let fillLayer = CAShapeLayer()
         
         let center = subView.center
+
         let circularPath = UIBezierPath(
             arcCenter: center,
-            radius: subView.frame.size.width/2,
-            startAngle: -CGFloat.pi/2,
-            endAngle: 3*CGFloat.pi/2,
+            radius: subView.frame.size.width / 2.0,
+            startAngle: (2 * CGFloat.pi) / 3.0,
+            endAngle: CGFloat.pi / 3.0,
             clockwise: true
         )
-        subShapeLayer.path = circularPath.cgPath
-        subShapeLayer.strokeColor = UIColor.gray.cgColor
-        subShapeLayer.lineWidth = 5
-        subShapeLayer.fillColor = UIColor.clear.cgColor
-        subShapeLayer.lineCap = CAShapeLayerLineCap.round
-        subShapeLayer.shadowColor = UIColor.black.cgColor
-        subShapeLayer.shadowOpacity = 1
-        subShapeLayer.shadowOffset = .zero
-        subShapeLayer.shadowRadius = 10
+        
+        backgroundLayer.path = circularPath.cgPath
+        backgroundLayer.strokeColor = UIColor.gray.cgColor
+        backgroundLayer.lineWidth = 5
+        backgroundLayer.fillColor = UIColor.clear.cgColor
+        backgroundLayer.lineCap = CAShapeLayerLineCap.round
+        backgroundLayer.shadowColor = UIColor.black.cgColor
+        backgroundLayer.shadowOpacity = 1
+        backgroundLayer.shadowOffset = .zero
+        backgroundLayer.shadowRadius = 10
 
-        shapeLayer.path = circularPath.cgPath
-        shapeLayer.strokeColor = UIColor.systemGreen.cgColor
-        shapeLayer.lineWidth = 5
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineCap = CAShapeLayerLineCap.round
-        shapeLayer.strokeEnd = CGFloat(completedCounter.0) / CGFloat(completedCounter.1)
+        fillLayer.path = circularPath.cgPath
+        fillLayer.strokeColor = UIColor.systemGreen.cgColor
+        fillLayer.lineWidth = 5
+        fillLayer.fillColor = UIColor.clear.cgColor
+        fillLayer.lineCap = CAShapeLayerLineCap.round
+        fillLayer.strokeEnd = CGFloat(completedCounter.0) / CGFloat(completedCounter.1)
         
         let labelCompleted = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
         labelCompleted.center = subView.center
         labelCompleted.text = "\(completedCounter.0)/\(completedCounter.1)"
         labelCompleted.textAlignment = .center
         labelCompleted.textColor = .yellow
+        backgroundLayer.addSublayer(fillLayer)
         
-        containerView.addSubview(labelCompleted)
-        containerView.layer.addSublayer(subShapeLayer)
-        containerView.layer.addSublayer(shapeLayer)
+        container.layer.addSublayer(backgroundLayer)
+        container.addSubview(labelCompleted)
 
     }
 
@@ -102,6 +116,11 @@ class ProfileViewController: UIViewController {
         )
         navigationController?.navigationBar.tintColor = .systemGreen
         navigationController?.navigationBar.topItem?.title = "Profile"
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setLayerFor(subViews: progressBar, adviceView)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
