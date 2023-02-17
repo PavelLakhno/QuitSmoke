@@ -77,18 +77,13 @@ class SettingsViewController: UIViewController {
     
     @IBAction func didTappedAction() {
         saveDataForUser()
-        print(user.dateQuitSmoke)
+ 
         delegate.setNewValues(for: user)
-        print("pressed button")
         navigationController?.popViewController(animated: true)
     }
         
     private func saveDataForUser() {
-//        user.dateQuitSmoke = datePicker.date
-//        user.amountCigarettsDay = Int(cigaInDay.value)
-//        user.amountCigarettsBox = Int(cigsOfBox.value)
-//        user.priceBoxCigaretts = Int(priceCiggaretsTextField.text ?? "") ?? 0
-//        user.timeForSmoke = Int(timeForSmokeLabel.text ?? "") ?? 0
+
         user = User.init(
             priceBoxCigaretts: Int(priceCiggaretsTextField.text ?? "") ?? 0,
             amountCigarettsDay: Int(cigaInDay.value),

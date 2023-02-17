@@ -16,18 +16,18 @@ class ProgressViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
+        user = getModelUserDefaults()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.topItem?.title = "Progress"
+        navigationController?.navigationBar.topItem?.title = "Прогресс"
         navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
     }
 }
 
 // MARK: UITableViewControllerDataSource
-
 extension ProgressViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section:
@@ -56,8 +56,34 @@ extension ProgressViewController {
 
         return cell
     }
+}
 
-    //MARK: Private Methods
+// MARK: SettingsViewControllerDelegate
+extension ProgressViewController: SettingsViewControllerDelegate {
+    func setNewValues(for user: User) {
+        self.user = user
+        tableView.reloadData()
+    }
+}
+
+//MARK: Private Methods
+extension ProgressViewController {
+    private func getModelUserDefaults() -> User {
+        let user = User(
+            priceBoxCigaretts: 0,
+            amountCigarettsDay: 0,
+            amountCigarettsBox: 0,
+            timeForSmoke: 0,
+            dateQuitSmoke: Date()
+        )
+        guard let data = UserDefaults.standard.object(forKey: "UserData") as? Data else {
+            return user
+        }
+        guard let userData = try? JSONDecoder().decode(User.self, from: data) else {
+            return user
+        }
+        return userData
+    }
     
     private func getTimeIntervalFrom(date: Date) -> Int {
         Int(Date().timeIntervalSinceReferenceDate - date.timeIntervalSinceReferenceDate)

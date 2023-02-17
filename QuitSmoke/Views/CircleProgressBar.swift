@@ -9,22 +9,13 @@ import UIKit
 
 final class CircleProgressBar: UIView {
 
-    public var widthProgress: CGFloat = 5
-    public var unfilledColor: UIColor = UIColor.gray
-    public var startValue: CGFloat = 0.0
-    public var endValue: CGFloat = 0.25
-    private var currentValue: CGFloat = 0.1
-    
-    public var gradientCollors: [CGColor] = [CGColor(red: 0/255, green: 128/255, blue: 255/255, alpha: 1.0),
-                                              CGColor(red: 0/255, green: 64/255, blue: 255/255, alpha: 1.0),
-                                              CGColor(red: 7/255, green: 3/255, blue: 255/255, alpha: 1.0)
-                                              ]
-
+    var widthProgress: CGFloat = 5
+    var startValue: CGFloat = 0.0
+    var endValue: CGFloat = 1
             
     var backgroundLayer: CAShapeLayer! {
         didSet {
             backgroundLayer.backgroundColor = backgroundColor?.cgColor
-            //backgroundLayer.strokeColor = unfilledColor.cgColor
             backgroundLayer.fillColor = UIColor.clear.cgColor
             backgroundLayer.lineCap = .round
             backgroundLayer.lineWidth = widthProgress
@@ -43,18 +34,17 @@ final class CircleProgressBar: UIView {
             fillLayer.lineCap = .round
             fillLayer.lineWidth = widthProgress
             fillLayer.strokeStart = startValue
-            fillLayer.strokeEnd = 0.5 //endValue / 100
-            
+            fillLayer.strokeEnd = endValue / 100
         }
     }
     
     private var labelLayer: CATextLayer! {
         didSet {
             labelLayer.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
-            labelLayer.bounds = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height / 2.5)
-            labelLayer.fontSize = bounds.height / 4
+            labelLayer.bounds = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height / 5) //2.5)
+            labelLayer.fontSize = 25.0 //bounds.height / 4
             labelLayer.alignmentMode = .center
-            labelLayer.foregroundColor = nil
+            labelLayer.foregroundColor = UIColor.yellow.cgColor
         }
     }
     
@@ -102,26 +92,15 @@ final class CircleProgressBar: UIView {
         layer.addSublayer(labelLayer)
     }
     
-    private func configureGradient() {
-        let gradient = CAGradientLayer()
-        
-        gradient.colors = gradientCollors
-        gradient.frame = self.bounds
-        gradient.startPoint = CGPoint(x: 0, y: 1)
-        gradient.endPoint = CGPoint(x: 1, y: 0)
-        gradient.mask = fillLayer
-        
-        layer.addSublayer(gradient)
-    }
     
-    /*
     private func animation(val: CGFloat) {
         let anim = CABasicAnimation(keyPath: "strokeEnd")
         
-        anim.fromValue = currentValue
+        anim.fromValue = startValue
         anim.toValue = val
         anim.autoreverses = false
         anim.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        anim.duration = 2
         anim.isRemovedOnCompletion = false
         anim.fillMode = .forwards
         
@@ -131,13 +110,8 @@ final class CircleProgressBar: UIView {
     public func setValue(value: Double, completion: (() -> Void)? = nil) {
         let value = CGFloat(value)
         let precent = (value/endValue)
-        
         animation(val: precent)
-        currentValue = precent
         labelLayer.string = "\(Int(precent * 100)) %"
-        
-        value.isEqual(to: endValue) ? completion?() : nil
-
     }
-     */
+     
 }

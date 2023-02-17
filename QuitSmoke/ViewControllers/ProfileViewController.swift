@@ -20,94 +20,28 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var containerView: UIStackView!
     
     var user: User!
-    
-    var timer = Timer()
-    var count = 0
-    var timerCounting = true
+    private var count = 0
     
     private let daysProgress = Progress.getFacts()
     private let totalProgress = Progress.getProgressList()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         user = getModelUserDefaults()
-
-        startStopTimer(timerCounting)
-        count = getTimeIntervalFrom(date: user.dateQuitSmoke)
-        
-        let days = count / 86400
-        var total = 0
-        for advice in totalProgress {
-            if count / advice.time >= 1 {
-                total += 1
-            }
-        }
-        
-        //containerView.layer.addSublayer(progressBar.backgroundLayer)
-        //containerView.layer.addSublayer(adviceView.backgroundLayer)
-        
-        //setLayerFor(subViews: adviceView, container: containerView)
-        //setLayerFor(subViews: adviceView)
-        //setLayerFor(subView: adviceView, completedCounter: (days, daysProgress.count), container: containerView)
-        //setLayerFor(subView: progressBar, completedCounter: (total, totalProgress.count), container: containerView)
-
+        count = getTimeInterval()
+        startTimer()
     }
+    
     func setLayerFor(subViews: CircleProgressBar...) {
-        
         for subView in subViews {
             containerView.layer.addSublayer(subView.backgroundLayer)
         }
-
     }
  
-    private func setLayerFor(subView: UIView, completedCounter: (Int, Int), container: UIStackView) {
-        
-        let backgroundLayer = CAShapeLayer()
-        let fillLayer = CAShapeLayer()
-        
-        let center = subView.center
-
-        let circularPath = UIBezierPath(
-            arcCenter: center,
-            radius: subView.frame.size.width / 2.0,
-            startAngle: (2 * CGFloat.pi) / 3.0,
-            endAngle: CGFloat.pi / 3.0,
-            clockwise: true
-        )
-        
-        backgroundLayer.path = circularPath.cgPath
-        backgroundLayer.strokeColor = UIColor.gray.cgColor
-        backgroundLayer.lineWidth = 5
-        backgroundLayer.fillColor = UIColor.clear.cgColor
-        backgroundLayer.lineCap = CAShapeLayerLineCap.round
-        backgroundLayer.shadowColor = UIColor.black.cgColor
-        backgroundLayer.shadowOpacity = 1
-        backgroundLayer.shadowOffset = .zero
-        backgroundLayer.shadowRadius = 10
-
-        fillLayer.path = circularPath.cgPath
-        fillLayer.strokeColor = UIColor.systemGreen.cgColor
-        fillLayer.lineWidth = 5
-        fillLayer.fillColor = UIColor.clear.cgColor
-        fillLayer.lineCap = CAShapeLayerLineCap.round
-        fillLayer.strokeEnd = CGFloat(completedCounter.0) / CGFloat(completedCounter.1)
-        
-        let labelCompleted = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-        labelCompleted.center = subView.center
-        labelCompleted.text = "\(completedCounter.0)/\(completedCounter.1)"
-        labelCompleted.textAlignment = .center
-        labelCompleted.textColor = .yellow
-        backgroundLayer.addSublayer(fillLayer)
-        
-        container.layer.addSublayer(backgroundLayer)
-        container.addSubview(labelCompleted)
-
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "gearshape.fill"),
             style: .done,
@@ -115,12 +49,21 @@ class ProfileViewController: UIViewController {
             action: #selector(showSettingsVC)
         )
         navigationController?.navigationBar.tintColor = .systemGreen
-        navigationController?.navigationBar.topItem?.title = "Profile"
-        
+        navigationController?.navigationBar.topItem?.title = "Профиль"
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setLayerFor(subViews: progressBar, adviceView)
+        super.viewDidAppear(animated)
+        
+        setLayerFor(subViews: adviceView, progressBar)
+
+        let day = Double(getProgressInDays()) / Double(daysProgress.count)
+        let dayTotal = Double(getTotalProgress()) / Double(totalProgress.count)
+        
+        economyTime.layer.animation(forKey: "text")
+        
+        adviceView.setValue(value: day)
+        progressBar.setValue(value: dayTotal)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -134,14 +77,13 @@ class ProfileViewController: UIViewController {
     @objc func showSettingsVC() {
         performSegue(withIdentifier: "settingsVC", sender: nil)
     }
-
 }
 
 // MARK: SettingsViewControllerDelegate
 extension ProfileViewController: SettingsViewControllerDelegate {
     func setNewValues(for user: User) {
         self.user = user
-        count = getTimeIntervalFrom(date: user.dateQuitSmoke)
+        count = getTimeInterval()
     }
 }
 
@@ -149,7 +91,13 @@ extension ProfileViewController: SettingsViewControllerDelegate {
 extension ProfileViewController {
     
     private func getModelUserDefaults() -> User {
-        let user = User(priceBoxCigaretts: 0, amountCigarettsDay: 0, amountCigarettsBox: 0, timeForSmoke: 0, dateQuitSmoke: Date())
+        let user = User(
+            priceBoxCigaretts: 0,
+            amountCigarettsDay: 0,
+            amountCigarettsBox: 0,
+            timeForSmoke: 0,
+            dateQuitSmoke: Date()
+        )
         guard let data = UserDefaults.standard.object(forKey: "UserData") as? Data else {
             return user
         }
@@ -159,18 +107,14 @@ extension ProfileViewController {
         return userData
     }
     
-    private func startStopTimer(_ isValue: Bool) {
-        if isValue {
-            timer = Timer.scheduledTimer(
-                timeInterval: 1,
-                target: self,
-                selector: #selector(timerCounter),
-                userInfo: nil,
-                repeats: true
-            )
-        } else {
-            timer.invalidate()
-        }
+    private func startTimer() {
+        Timer.scheduledTimer(
+            timeInterval: 1,
+            target: self,
+            selector: #selector(timerCounter),
+            userInfo: nil,
+            repeats: true
+        )
     }
         
     @objc func timerCounter() {
@@ -184,6 +128,20 @@ extension ProfileViewController {
         economyMoney.text = getEconomyMoney()
         passCigaretts.text = getCountNoSmokeCig()
     }
+    
+//    private func animation(val: CGFloat) {
+//        let anim = CABasicAnimation(keyPath: "text")
+//
+//        anim.fromValue = "0"
+//        anim.toValue = val.formatted
+//        anim.autoreverses = false
+//        anim.timingFunction = CAMediaTimingFunction(name: .easeOut)
+//        anim.duration = 2
+//        anim.isRemovedOnCompletion = false
+//        anim.fillMode = .forwards
+//
+//        economyTime.addAnimations(anim)
+//    }
 
     private func secondsToDaysHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int, Int) {
         let restSeconds = seconds % 86400
@@ -200,17 +158,26 @@ extension ProfileViewController {
         return timeString
     }
     
-    private func makeDayString(seconds: Int) -> String {
-        "\((seconds / 86400))"
+    private func getProgressInDays() -> Int {
+        count / 86400
     }
     
-    private func getTimeIntervalFrom(date: Date) -> Int {
-        Int(Date().timeIntervalSinceReferenceDate - date.timeIntervalSinceReferenceDate)
+    private func getTotalProgress() -> Int {
+        var total = 0
+        for advice in totalProgress {
+            if count / advice.time >= 1 {
+                total += 1
+            }
+        }
+        return total
+    }
+    
+    private func getTimeInterval() -> Int {
+        Int(Date().timeIntervalSinceReferenceDate - user.dateQuitSmoke.timeIntervalSinceReferenceDate)
     }
     
     private func getEconomyTime() -> String {
-        
-        return "\((count) / (user.timeForSmoke * 60) / 60) мин"
+        "\((count) / (user.timeForSmoke * 60) / 60) мин"
     }
 
     private func getEconomyMoney() -> String {
