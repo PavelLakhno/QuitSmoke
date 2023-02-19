@@ -9,7 +9,19 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    @IBOutlet weak var economyTime: UILabel!
+    @IBOutlet var backgroundViews: [UIView]! {
+        didSet {
+            for backView in backgroundViews {
+                backView.layer.cornerRadius = 10
+                backView.layer.masksToBounds = false
+                backView.layer.shadowOpacity = 0.5
+                backView.layer.shadowRadius = 10
+                backView.layer.shadowOffset = CGSize(width: 0, height: 0)
+                backView.layer.shadowColor = UIColor.black.cgColor
+            }
+        }
+    }
+    @IBOutlet weak var economyTime: CountingLabel!
     @IBOutlet weak var economyMoney: UILabel!
     @IBOutlet weak var passCigaretts: UILabel!
     @IBOutlet weak var daysLabel: UILabel!
@@ -60,7 +72,8 @@ class ProfileViewController: UIViewController {
         let day = Double(getProgressInDays()) / Double(daysProgress.count)
         let dayTotal = Double(getTotalProgress()) / Double(totalProgress.count)
         
-        economyTime.layer.animation(forKey: "text")
+        economyTime.endValue = Double(getEconomyTime2())
+        economyTime.startCounting()
         
         adviceView.setValue(value: day)
         progressBar.setValue(value: dayTotal)
@@ -174,6 +187,10 @@ extension ProfileViewController {
     
     private func getTimeInterval() -> Int {
         Int(Date().timeIntervalSinceReferenceDate - user.dateQuitSmoke.timeIntervalSinceReferenceDate)
+    }
+    
+    private func getEconomyTime2() -> Int {
+        count / (user.timeForSmoke * 60) / 60
     }
     
     private func getEconomyTime() -> String {

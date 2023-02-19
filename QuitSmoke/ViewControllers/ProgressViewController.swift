@@ -16,7 +16,7 @@ class ProgressViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
-        user = getModelUserDefaults()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,6 +24,8 @@ class ProgressViewController: UITableViewController {
         
         navigationController?.navigationBar.topItem?.title = "Прогресс"
         navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+        user = getModelUserDefaults()
+        tableView.reloadData()
     }
 }
 
@@ -37,7 +39,7 @@ extension ProgressViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "progress",
+            withIdentifier: "ProgressTableViewCell",
             for: indexPath
         ) as! ProgressTableViewCell
         
@@ -59,12 +61,12 @@ extension ProgressViewController {
 }
 
 // MARK: SettingsViewControllerDelegate
-extension ProgressViewController: SettingsViewControllerDelegate {
-    func setNewValues(for user: User) {
-        self.user = user
-        tableView.reloadData()
-    }
-}
+//extension ProgressViewController: SettingsViewControllerDelegate {
+//    func setNewValues(for user: User) {
+//        self.user = user
+//        tableView.reloadData()
+//    }
+//}
 
 //MARK: Private Methods
 extension ProgressViewController {

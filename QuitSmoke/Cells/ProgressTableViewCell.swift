@@ -27,7 +27,7 @@ class ProgressTableViewCell: UITableViewCell {
             layer.shadowColor = UIColor.black.cgColor
 
             // add corner radius on `contentView`
-            contentView.backgroundColor = .white
+            //contentView.backgroundColor = .white
             contentView.layer.cornerRadius = 15
         //contentView.layer.borderWidth = 2
         //contentView.layer.borderColor = UIColor.darkGray.cgColor

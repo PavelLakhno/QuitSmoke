@@ -17,18 +17,13 @@ class AdvicesViewController: UITableViewController {
         Float(getTimeIntervalFrom(date: user.dateQuitSmoke))
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        user = getModelUserDefaults()
-        
-     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.topItem?.title = "21 день"
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = nil        
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+        user = getModelUserDefaults()
+        tableView.reloadData()
     }
 }
 
