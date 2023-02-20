@@ -8,19 +8,20 @@
 import UIKit
 
 class CountingLabel: UILabel {
-
-    let startValue: Double = 0
-    var endValue: Double = 1000
-    let animationDuration: Double = 3.5
+    
+    var endValue = 1000
+    var abbreviation: String = ""
+    var animationDuration: Double = 1.5 //In secounds
     var animationStarts = Date()
     
-    var countStartValue : Double = 0
-    var countEndValue : Double = 0
+    private var startValue = 0
+    private var countStartValue : Double = 0
+    private var countEndValue : Double = 0
     
-    func startCounting() {
+    public func startCounting(){
         animationStarts = Date()
-        countStartValue = startValue
-        countEndValue = endValue
+        countStartValue = Double(startValue)
+        countEndValue = Double(endValue)
         
         let displayLink = CADisplayLink(target: self, selector: #selector(handleCounting))
         displayLink.add(to: .main, forMode: .default)
@@ -29,13 +30,13 @@ class CountingLabel: UILabel {
     @objc public func handleCounting() {
         
         let elapsed = Date().timeIntervalSince(animationStarts)
-       
+        
         if elapsed > animationDuration {
-            self.text = "\(endValue)"
+            self.text = "\(endValue) \(abbreviation)"
         } else {
             let percent = elapsed/animationDuration
             let value = countStartValue + percent * (countEndValue - countStartValue)
-            self.text = String(format:"%.2f", value)
+            self.text = String(format:"%.f \(abbreviation)", value)
         }
     }
 }

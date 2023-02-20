@@ -22,8 +22,8 @@ class ProfileViewController: UIViewController {
         }
     }
     @IBOutlet weak var economyTime: CountingLabel!
-    @IBOutlet weak var economyMoney: UILabel!
-    @IBOutlet weak var passCigaretts: UILabel!
+    @IBOutlet weak var economyMoney: CountingLabel!
+    @IBOutlet weak var passCigaretts: CountingLabel!
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
@@ -72,8 +72,17 @@ class ProfileViewController: UIViewController {
         let day = Double(getProgressInDays()) / Double(daysProgress.count)
         let dayTotal = Double(getTotalProgress()) / Double(totalProgress.count)
         
-        economyTime.endValue = Double(getEconomyTime2())
+        economyTime.endValue = getEconomyTime()
+        economyTime.abbreviation = "мин"
         economyTime.startCounting()
+        
+        economyMoney.endValue = getEconomyMoney()
+        economyMoney.abbreviation = "руб"
+        economyMoney.startCounting()
+        
+        passCigaretts.endValue = getCountNoSmokeCig()
+        passCigaretts.abbreviation = "шт"
+        passCigaretts.startCounting()
         
         adviceView.setValue(value: day)
         progressBar.setValue(value: dayTotal)
@@ -137,9 +146,9 @@ extension ProfileViewController {
         let timeString = makeTimeString(hours: time.1, minutes: time.2, seconds: time.3)
         daysLabel.text = dayString
         timerLabel.text = timeString
-        economyTime.text = getEconomyTime()
-        economyMoney.text = getEconomyMoney()
-        passCigaretts.text = getCountNoSmokeCig()
+        //economyTime.text = getEconomyTime()
+        //economyMoney.text = getEconomyMoney()
+        //passCigaretts.text = getCountNoSmokeCig()
     }
     
 //    private func animation(val: CGFloat) {
@@ -189,23 +198,19 @@ extension ProfileViewController {
         Int(Date().timeIntervalSinceReferenceDate - user.dateQuitSmoke.timeIntervalSinceReferenceDate)
     }
     
-    private func getEconomyTime2() -> Int {
+    private func getEconomyTime() -> Int {
         count / (user.timeForSmoke * 60) / 60
     }
-    
-    private func getEconomyTime() -> String {
-        "\((count) / (user.timeForSmoke * 60) / 60) мин"
-    }
 
-    private func getEconomyMoney() -> String {
+    private func getEconomyMoney() -> Int {
         let priceOneCigar = user.priceBoxCigaretts / user.amountCigarettsBox
         let spendMoneyOneDay = priceOneCigar * user.amountCigarettsDay
-        let totalEconomyMoney = "\(count / 86400 * spendMoneyOneDay) руб"
+        let totalEconomyMoney = count / 86400 * spendMoneyOneDay
         return totalEconomyMoney
     }
     
-    private func getCountNoSmokeCig() -> String{
-        "\(count / 86400 * user.amountCigarettsDay) шт"
+    private func getCountNoSmokeCig() -> Int {
+        count / 86400 * user.amountCigarettsDay
     }
 }
 
