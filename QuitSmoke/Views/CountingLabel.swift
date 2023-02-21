@@ -7,11 +7,23 @@
 
 import UIKit
 
+enum Abbrivation: String, CaseIterable {
+    
+    case labelMinute = "мин"
+    case labelMoney = "руб"
+    case labelCount = "шт"
+    case labelDay = "день"
+    case labelHour = "час"
+    case labelWeek = "неделю"
+    case labelYear = "год"
+    
+}
+
 class CountingLabel: UILabel {
     
     var endValue = 1000
-    var abbreviation: String = ""
-    var animationDuration: Double = 1.5 //In secounds
+    var abbreviation: Abbrivation = .labelDay
+    var animationDuration: Double = 1.5
     var animationStarts = Date()
     
     private var startValue = 0
@@ -32,11 +44,11 @@ class CountingLabel: UILabel {
         let elapsed = Date().timeIntervalSince(animationStarts)
         
         if elapsed > animationDuration {
-            self.text = "\(endValue) \(abbreviation)"
+            self.text = "\(endValue) \(abbreviation.rawValue)"
         } else {
             let percent = elapsed/animationDuration
             let value = countStartValue + percent * (countEndValue - countStartValue)
-            self.text = String(format:"%.f \(abbreviation)", value)
+            self.text = String(format:"%.f \(abbreviation.rawValue)", value)
         }
     }
 }

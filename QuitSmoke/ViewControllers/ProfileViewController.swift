@@ -24,9 +24,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var economyTime: CountingLabel!
     @IBOutlet weak var economyMoney: CountingLabel!
     @IBOutlet weak var passCigaretts: CountingLabel!
-    @IBOutlet weak var daysLabel: UILabel!
-    @IBOutlet weak var timerLabel: UILabel!
-    
+    @IBOutlet weak var daysLabel: CountingLabel!
+    @IBOutlet weak var hoursLabel: CountingLabel!
+    @IBOutlet weak var weekLabel: CountingLabel!
+    @IBOutlet weak var yearsLabel: CountingLabel!
+        
     @IBOutlet weak var progressBar: CircleProgressBar!
     @IBOutlet weak var adviceView: CircleProgressBar!
     @IBOutlet weak var containerView: UIStackView!
@@ -73,16 +75,32 @@ class ProfileViewController: UIViewController {
         let dayTotal = Double(getTotalProgress()) / Double(totalProgress.count)
         
         economyTime.endValue = getEconomyTime()
-        economyTime.abbreviation = "мин"
+        economyTime.abbreviation = .labelMoney
         economyTime.startCounting()
         
         economyMoney.endValue = getEconomyMoney()
-        economyMoney.abbreviation = "руб"
+        economyMoney.abbreviation = .labelMoney
         economyMoney.startCounting()
         
         passCigaretts.endValue = getCountNoSmokeCig()
-        passCigaretts.abbreviation = "шт"
+        passCigaretts.abbreviation = .labelCount
         passCigaretts.startCounting()
+        
+        daysLabel.endValue = getProgressInDays()
+        daysLabel.abbreviation = .labelDay
+        daysLabel.startCounting()
+        
+        hoursLabel.endValue = getProgressInHours()
+        hoursLabel.abbreviation = .labelHour
+        hoursLabel.startCounting()
+        
+        weekLabel.endValue = getProgressInWeek()
+        weekLabel.abbreviation = .labelWeek
+        weekLabel.startCounting()
+        
+        yearsLabel.endValue = getProgressInYear()
+        yearsLabel.abbreviation = .labelYear
+        yearsLabel.startCounting()
         
         adviceView.setValue(value: day)
         progressBar.setValue(value: dayTotal)
@@ -145,7 +163,9 @@ extension ProfileViewController {
         let dayString = "\(time.0)"
         let timeString = makeTimeString(hours: time.1, minutes: time.2, seconds: time.3)
         daysLabel.text = dayString
-        timerLabel.text = timeString
+        //timerLabel.text = timeString
+        weekLabel.text = getProgressInDays().formatted()
+        yearsLabel.text = getProgressInHours().formatted()
         //economyTime.text = getEconomyTime()
         //economyMoney.text = getEconomyMoney()
         //passCigaretts.text = getCountNoSmokeCig()
@@ -169,6 +189,8 @@ extension ProfileViewController {
         let restSeconds = seconds % 86400
         return ((seconds / 86400), (restSeconds / 3600), ((restSeconds % 3600) / 60), ((restSeconds % 3600) % 60))
     }
+    
+
 
     private func makeTimeString(hours: Int, minutes: Int, seconds : Int) -> String {
         var timeString = ""
@@ -182,6 +204,18 @@ extension ProfileViewController {
     
     private func getProgressInDays() -> Int {
         count / 86400
+    }
+    
+    private func getProgressInHours() -> Int {
+        (count % 86400) / 3600
+    }
+    
+    private func getProgressInWeek() -> Int {
+        getProgressInDays() / 7
+    }
+    
+    private func getProgressInYear() -> Int {
+        getProgressInDays() / 365
     }
     
     private func getTotalProgress() -> Int {

@@ -273,12 +273,14 @@
                     <connections>
                         <outlet property="adviceView" destination="mHb-28-cru" id="X0i-Xl-wLj"/>
                         <outlet property="containerView" destination="Phe-LC-Tc3" id="i8n-ys-vE9"/>
-                        <outlet property="daysLabel" destination="Qp3-VK-fsX" id="5bH-Ul-9my"/>
+                        <outlet property="daysLabel" destination="Qp3-VK-fsX" id="ITc-kS-6WQ"/>
                         <outlet property="economyMoney" destination="ueJ-Tj-igM" id="dnb-e4-x84"/>
                         <outlet property="economyTime" destination="43w-xB-dZD" id="1xJ-EW-bhi"/>
+                        <outlet property="hoursLabel" destination="hNF-fB-lRW" id="3mu-eD-zaM"/>
                         <outlet property="passCigaretts" destination="7vT-Lr-YUY" id="Wsu-fa-5fa"/>
                         <outlet property="progressBar" destination="r1h-n0-tY1" id="ILq-tG-e45"/>
-                        <outlet property="timerLabel" destination="hNF-fB-lRW" id="R7O-ji-8hn"/>
+                        <outlet property="weekLabel" destination="9A7-mr-2gt" id="cl2-HD-jyB"/>
+                        <outlet property="yearsLabel" destination="8YG-Sa-J0z" id="2Nb-hy-eud"/>
                         <outletCollection property="backgroundViews" destination="o0i-Hs-zXa" collectionClass="NSMutableArray" id="qwX-RB-wCj"/>
                         <outletCollection property="backgroundViews" destination="lj4-LK-C0i" collectionClass="NSMutableArray" id="Kex-3L-UUE"/>
                         <outletCollection property="backgroundViews" destination="UGO-xi-yBR" collectionClass="NSMutableArray" id="Saz-yU-q1U"/>
