@@ -14,15 +14,16 @@ enum Abbrivation: String, CaseIterable {
     case labelCount = "шт"
     case labelDay = "день"
     case labelHour = "час"
-    case labelWeek = "неделю"
+    case labelWeek = "нед."
     case labelYear = "год"
+    case labelNil = ""
     
 }
 
 class CountingLabel: UILabel {
     
     var endValue = 1000
-    var abbreviation: Abbrivation = .labelDay
+    var abbreviation: Abbrivation = .labelNil
     var animationDuration: Double = 1.5
     var animationStarts = Date()
     

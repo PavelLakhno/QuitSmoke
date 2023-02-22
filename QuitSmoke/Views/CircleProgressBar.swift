@@ -44,7 +44,7 @@ final class CircleProgressBar: UIView {
             labelLayer.bounds = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height / 5) //2.5)
             labelLayer.fontSize = 25.0 //bounds.height / 4
             labelLayer.alignmentMode = .center
-            labelLayer.foregroundColor = UIColor.yellow.cgColor
+            labelLayer.foregroundColor = UIColor.white.cgColor
         }
     }
     

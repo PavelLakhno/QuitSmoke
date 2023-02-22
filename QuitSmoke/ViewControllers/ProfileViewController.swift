@@ -44,7 +44,6 @@ class ProfileViewController: UIViewController {
 
         user = getModelUserDefaults()
         count = getTimeInterval()
-        startTimer()
     }
     
     func setLayerFor(subViews: CircleProgressBar...) {
@@ -74,33 +73,7 @@ class ProfileViewController: UIViewController {
         let day = Double(getProgressInDays()) / Double(daysProgress.count)
         let dayTotal = Double(getTotalProgress()) / Double(totalProgress.count)
         
-        economyTime.endValue = getEconomyTime()
-        economyTime.abbreviation = .labelMoney
-        economyTime.startCounting()
-        
-        economyMoney.endValue = getEconomyMoney()
-        economyMoney.abbreviation = .labelMoney
-        economyMoney.startCounting()
-        
-        passCigaretts.endValue = getCountNoSmokeCig()
-        passCigaretts.abbreviation = .labelCount
-        passCigaretts.startCounting()
-        
-        daysLabel.endValue = getProgressInDays()
-        daysLabel.abbreviation = .labelDay
-        daysLabel.startCounting()
-        
-        hoursLabel.endValue = getProgressInHours()
-        hoursLabel.abbreviation = .labelHour
-        hoursLabel.startCounting()
-        
-        weekLabel.endValue = getProgressInWeek()
-        weekLabel.abbreviation = .labelWeek
-        weekLabel.startCounting()
-        
-        yearsLabel.endValue = getProgressInYear()
-        yearsLabel.abbreviation = .labelYear
-        yearsLabel.startCounting()
+        setupLabels()
         
         adviceView.setValue(value: day)
         progressBar.setValue(value: dayTotal)
@@ -147,50 +120,52 @@ extension ProfileViewController {
         return userData
     }
     
-    private func startTimer() {
-        Timer.scheduledTimer(
-            timeInterval: 1,
-            target: self,
-            selector: #selector(timerCounter),
-            userInfo: nil,
-            repeats: true
-        )
-    }
+    private func setupLabels() {
         
-    @objc func timerCounter() {
-        count += 1
-        let time = secondsToDaysHoursMinutesSeconds(seconds: count)
-        let dayString = "\(time.0)"
-        let timeString = makeTimeString(hours: time.1, minutes: time.2, seconds: time.3)
-        daysLabel.text = dayString
-        //timerLabel.text = timeString
-        weekLabel.text = getProgressInDays().formatted()
-        yearsLabel.text = getProgressInHours().formatted()
-        //economyTime.text = getEconomyTime()
-        //economyMoney.text = getEconomyMoney()
-        //passCigaretts.text = getCountNoSmokeCig()
+        let seconds = getValuesFromSeconds()
+        
+        economyTime.endValue = getEconomyTime()
+        economyTime.abbreviation = .labelMoney
+        economyTime.startCounting()
+        
+        economyMoney.endValue = getEconomyMoney()
+        economyMoney.abbreviation = .labelMoney
+        economyMoney.startCounting()
+        
+        passCigaretts.endValue = getCountNoSmokeCig()
+        passCigaretts.abbreviation = .labelCount
+        passCigaretts.startCounting()
+        
+        daysLabel.endValue = seconds.days
+        //daysLabel.abbreviation = .labelDay
+        daysLabel.startCounting()
+        
+        hoursLabel.endValue = seconds.hours
+        //hoursLabel.abbreviation = .labelHour
+        hoursLabel.startCounting()
+        
+        weekLabel.endValue = seconds.weeks
+        //weekLabel.abbreviation = .labelWeek
+        weekLabel.startCounting()
+        
+        yearsLabel.endValue = seconds.years
+        //yearsLabel.abbreviation = .labelYear
+        yearsLabel.startCounting()
     }
-    
-//    private func animation(val: CGFloat) {
-//        let anim = CABasicAnimation(keyPath: "text")
-//
-//        anim.fromValue = "0"
-//        anim.toValue = val.formatted
-//        anim.autoreverses = false
-//        anim.timingFunction = CAMediaTimingFunction(name: .easeOut)
-//        anim.duration = 2
-//        anim.isRemovedOnCompletion = false
-//        anim.fillMode = .forwards
-//
-//        economyTime.addAnimations(anim)
-//    }
 
-    private func secondsToDaysHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int, Int) {
-        let restSeconds = seconds % 86400
-        return ((seconds / 86400), (restSeconds / 3600), ((restSeconds % 3600) / 60), ((restSeconds % 3600) % 60))
+    private func getValuesFromSeconds() -> (years: Int, weeks: Int, days: Int, hours: Int) {
+        let oneHour = 3600
+        let oneDay = 24 * oneHour
+        let oneWeek = 7 * oneDay
+        let oneYear = 365 * oneDay
+        
+        let year = count / oneYear
+        let week = (count % oneYear) / oneWeek
+        let day = ((count % oneYear) % oneWeek) / oneDay
+        let hour = (((count % oneYear) % oneWeek) % oneDay) / oneHour
+        
+        return (year, week, day, hour)
     }
-    
-
 
     private func makeTimeString(hours: Int, minutes: Int, seconds : Int) -> String {
         var timeString = ""
