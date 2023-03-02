@@ -22,7 +22,9 @@ class AdvicesViewController: UITableViewController {
         
         navigationController?.navigationBar.topItem?.title = "21 день"
         navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+        
         user = getModelUserDefaults()
+        tableView.separatorStyle = .none
         tableView.reloadData()
     }
 }
@@ -58,10 +60,7 @@ extension AdvicesViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UIView.animate(withDuration: 0.3) {
-            tableView.performBatchUpdates(nil)
-        }
-
+        tableView.performBatchUpdates(nil)
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -73,6 +72,7 @@ extension AdvicesViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
+
 }
 
 //MARK: Private Methods

@@ -22,6 +22,7 @@ class AdviceTableViewCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
         backgroundColor = .clear
+        contentView.backgroundColor = .clear
         //layer.borderWidth = 2
         //layer.borderColor = UIColor.darkGray.cgColor
         
@@ -32,7 +33,7 @@ class AdviceTableViewCell: UITableViewCell {
         
         layer.masksToBounds = false
         layer.shadowOpacity = 0.5
-        layer.shadowRadius = 15
+        layer.shadowRadius = 5
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowColor = UIColor.black.cgColor
         
@@ -48,7 +49,7 @@ class AdviceTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 5, bottom: 5, right: 0))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 5, bottom: 5, right: 5))
         contentView.layer.cornerRadius = 15
         contentView.backgroundColor = UIColor.darkGray
         
