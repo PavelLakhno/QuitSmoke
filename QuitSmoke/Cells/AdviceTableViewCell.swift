@@ -11,7 +11,7 @@ class AdviceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var title: UIView!
     
-    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var headerView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var numberOfDay: UILabel!

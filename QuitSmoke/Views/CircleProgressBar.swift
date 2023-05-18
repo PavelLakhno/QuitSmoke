@@ -41,8 +41,8 @@ final class CircleProgressBar: UIView {
     private var labelLayer: CATextLayer! {
         didSet {
             labelLayer.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
-            labelLayer.bounds = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height / 5) //2.5)
-            labelLayer.fontSize = 25.0 //bounds.height / 4
+            labelLayer.bounds = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height / 5)
+            labelLayer.fontSize = 25.0
             labelLayer.alignmentMode = .center
             labelLayer.foregroundColor = UIColor.white.cgColor
         }
@@ -111,7 +111,7 @@ final class CircleProgressBar: UIView {
         let value = CGFloat(value)
         let precent = (value/endValue)
         animation(val: precent)
-        labelLayer.string = "\(Int(precent * 100)) %"
+        labelLayer.string = precent > 1 ? "100 %" : "\(Int(precent * 100)) %"  
     }
      
 }

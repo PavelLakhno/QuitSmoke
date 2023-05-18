@@ -47,6 +47,7 @@ extension AdvicesViewController {
         cell.titleLabel.text = "Fact #\(indexPath.row + 1)"
         cell.numberOfDay.text = "\(indexPath.row + 1)"
         cell.factLabel.text = smokeFacts[indexPath.row]
+        cell.headerView.image = UIImage(named: "smoking1")
         
         if cell.isUserInteractionEnabled {
             cell.isPassedDay.text = "☑︎"

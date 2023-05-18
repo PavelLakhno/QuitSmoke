@@ -23,7 +23,6 @@ class GreetingThirdViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         cigaInDay.setDecrementImage(cigaInDay.decrementImage(for: .normal), for: .normal)
         cigaInDay.setIncrementImage(cigaInDay.incrementImage(for: .normal), for: .normal)
@@ -33,6 +32,9 @@ class GreetingThirdViewController: UIViewController {
         cigsOfBox.setIncrementImage(cigsOfBox.incrementImage(for: .normal), for: .normal)
         cigsOfBox.tintColor = .systemOrange
 
+        cigsInDayLabel.text = "\(Int(cigaInDay.value))"
+        cigsInBoxLabel.text = "\(Int(cigsOfBox.value))"
+        timeForSmokeLabel.text = "\(Int(timeForSmokeSlider.value))"
     }
 
     @objc func doneButtonPressed(sender: Any) {

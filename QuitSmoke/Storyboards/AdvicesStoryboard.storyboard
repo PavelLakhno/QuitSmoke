@@ -76,13 +76,13 @@
                                                         <constraint firstAttribute="trailing" secondItem="UwK-Fi-e83" secondAttribute="trailing" constant="10" id="pYt-gC-WsH"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aak-C6-peO">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aak-C6-peO" customClass="UIImageView">
                                                     <rect key="frame" x="0.0" y="90" width="375" height="210"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBL-FM-MRw">
                                                             <rect key="frame" x="8" y="8" width="359" height="194"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="ADY-ZB-pxI"/>
+                                                                <constraint firstAttribute="height" constant="200" id="ADY-ZB-pxI"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
